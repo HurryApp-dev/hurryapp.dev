@@ -40,7 +40,12 @@ seja apagado depois.
 
 `git pull` no começo, `git push` no fim. O `sincronizar.bat` faz os três passos.
 
-## Estes dois arquivos são iguais
+## Como este arquivo é lido
 
-`CLAUDE.md` e `AGENTS.md` têm o mesmo conteúdo, para Claude e Codex lerem o mesmo.
-**Editou um, copie no outro.**
+O conteúdo vive **só aqui**, no `AGENTS.md`. O `CLAUDE.md` ao lado tem uma linha
+só — `@AGENTS.md` — que importa este arquivo. O Codex lê este; o Claude lê o
+outro, que aponta para este. **Um conteúdo, dois leitores, nenhuma cópia para
+divergir.**
+
+Para mudar as instruções, edite **este** arquivo. Não escreva conteúdo no
+`CLAUDE.md`.
