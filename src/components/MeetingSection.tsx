@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import emailjs from "@emailjs/browser";
+import { enviarContato } from "@/lib/enviarContato";
 import { useToast } from "@/hooks/use-toast";
-
-const EMAILJS_SERVICE_ID = "service_7i379qx";
-const EMAILJS_TEMPLATE_ID = "template_6i532fz";
-const EMAILJS_PUBLIC_KEY = "GlpJfG5_rfMC9ZlOj";
 
 const MeetingSection = () => {
   const [form, setForm] = useState({ name: "", email: "", whatsapp: "", message: "" });
@@ -19,22 +15,19 @@ const MeetingSection = () => {
     setSending(true);
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: form.name,
-          email: form.email,
-          whatsapp: form.whatsapp,
-          message: form.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      );
+      await enviarContato({
+        origem: "reuniao",
+        name: form.name,
+        email: form.email,
+        whatsapp: form.whatsapp,
+        message: form.message,
+        website: String(new FormData(e.currentTarget as HTMLFormElement).get("website") ?? ""),
+      });
 
       toast({ title: t("meeting.success") });
       setForm({ name: "", email: "", whatsapp: "", message: "" });
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Envio do formulario falhou:", error);
       toast({ title: t("meeting.error"), variant: "destructive" });
     } finally {
       setSending(false);
@@ -48,6 +41,14 @@ const MeetingSection = () => {
         <p className="text-muted-foreground mb-10">{t("meeting.subtitle")}</p>
 
         <form onSubmit={handleSubmit} className="glass-card p-8 space-y-4 text-left">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
           {[
             { label: t("meeting.name"), key: "name" as const, type: "text" },
             { label: t("meeting.email"), key: "email" as const, type: "email" },

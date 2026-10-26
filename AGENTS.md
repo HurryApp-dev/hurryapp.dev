@@ -3,23 +3,25 @@
 Este é o código do site **publicado** em `https://www.hurryapp.dev`. Vite + React
 + TypeScript + Tailwind, com shadcn/ui. Publicação pela Vercel.
 
-## O formulário de contato usa EmailJS
+## O formulário de contato envia pelo AWS SES
 
 `src/components/CalculatorSection.tsx` e `src/components/MeetingSection.tsx`
-enviam por `@emailjs/browser`. **Não há back-end, webhook nem API própria** por
-trás do formulário — se você procurar por um, não vai achar, e não é porque está
-faltando.
+chamam `enviarContato` (`src/lib/enviarContato.ts`), que faz `POST /api/contato`.
+A função `api/contato.ts` (Vercel Function, Node) valida, descarta robô (campo
+escondido `website`) e envia por SMTP do AWS SES (`nodemailer`).
 
-Os identificadores de service e template do EmailJS estão no código de propósito:
-é assim que a biblioteca funciona no navegador, e eles já viajam no bundle
-publicado. Não são segredo e não devem ser tratados como tal.
+As credenciais ficam **só nas variáveis de ambiente da Vercel**, nunca no
+código: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTATO_DE`,
+`CONTATO_PARA`. A senha SMTP é a do usuário IAM `HurryApp`; o CSV está no cofre.
+O EmailJS foi removido.
 
 ## Antes de publicar, confira que é daqui
 
 Já existiu mais de um repositório com um site da HurryApp dentro, de desenhos
-diferentes. **Só este gera o que está no ar.** O teste rápido: o código publicado
-importa `@emailjs/browser`. Se o repositório em que você está não importa, não é
-este — e publicar dele troca um formulário que funciona por um que não funciona.
+diferentes. **Só este gera o que está no ar.** O teste rápido: este repositório tem
+`api/contato.ts` e os formulários importam `@/lib/enviarContato`. Se o
+repositório em que você está não tem, não é este — e publicar dele troca um
+formulário que funciona por um que não funciona.
 
 ## Antes de mexer
 
