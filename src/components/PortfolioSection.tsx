@@ -4,12 +4,10 @@ import portfolioAdega from "@/assets/portfolio-adega.png";
 import portfolioLogo2 from "@/assets/portfolio-logo2.jpg";
 import portfolioSuperloja from "@/assets/portfolio-superloja.jpg";
 import portfolioAdegaDetail from "@/assets/portfolio-adega-detail.jpg";
-import portfolioEncomendeartLogo from "@/assets/portfolio-encomendeart-logo.jpg";
-import portfolioEncomendeartDetail from "@/assets/portfolio-encomendeart-detail.jpg";
 import portfolioCoordenacaoLogo from "@/assets/portfolio-coordenacao-logo.jpg";
 import portfolioCoordenacaoDetail from "@/assets/portfolio-coordenacao-detail.jpg";
-import portfolioLocarcarroLogo from "@/assets/portfolio-locarcarro-logo.png";
-import portfolioLocarcarroDetail from "@/assets/portfolio-locarcarro-detail.jpg";
+import portfolioAutomacaoLogo from "@/assets/portfolio-automacao-logo.png";
+import portfolioAutomacaoDetail from "@/assets/portfolio-automacao-telas.jpg";
 import portfolioUseplusLogo from "@/assets/portfolio-useplus-logo.png";
 import portfolioUseplusDetail from "@/assets/portfolio-useplus-detail.jpg";
 import portfolioRapidoLogo from "@/assets/portfolio-rapidonobairro-logo.jpg";
@@ -39,7 +37,15 @@ const portfolioItems: PortfolioItem[] = [
       photos: [portfolioAdegaDetail],
       description: "",
       descriptionKey: "portfolio.adega.description",
-      link: "https://adegaventura.com.br/version-test",
+    },
+  },
+  {
+    image: portfolioAutomacaoLogo,
+    name: "Automação Comercial",
+    details: {
+      photos: [portfolioAutomacaoDetail],
+      description: "",
+      descriptionKey: "portfolio.automacao.description",
     },
   },
   {
@@ -49,15 +55,6 @@ const portfolioItems: PortfolioItem[] = [
       photos: [portfolioSuperloja],
       description: "",
       descriptionKey: "portfolio.client.description",
-    },
-  },
-  {
-    image: portfolioEncomendeartLogo,
-    name: "EncomendeArt",
-    details: {
-      photos: [portfolioEncomendeartDetail],
-      description: "",
-      descriptionKey: "portfolio.encomendeart.description",
     },
   },
   {
@@ -71,23 +68,12 @@ const portfolioItems: PortfolioItem[] = [
     },
   },
   {
-    image: portfolioLocarcarroLogo,
-    name: "Locar Carro Elétrico",
-    details: {
-      photos: [portfolioLocarcarroDetail],
-      description: "",
-      descriptionKey: "portfolio.locarcarro.description",
-      link: "https://ericacoelhoama.bubbleapps.io/version-test",
-    },
-  },
-  {
     image: portfolioUseplusLogo,
     name: "Use+",
     details: {
       photos: [portfolioUseplusDetail],
       description: "",
       descriptionKey: "portfolio.useplus.description",
-      link: "https://usemais.app/",
     },
   },
   {
@@ -117,7 +103,6 @@ const portfolioItems: PortfolioItem[] = [
       photos: [portfolioEsteiraDetail],
       description: "",
       descriptionKey: "portfolio.esteira.description",
-      link: "https://imoplan-32099.bubbleapps.io/",
     },
   },
 ];
@@ -139,7 +124,7 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section id="portfolio" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center">
           {t("portfolio.title")}

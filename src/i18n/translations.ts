@@ -3,6 +3,7 @@ export type Language = "pt" | "en" | "de";
 export const translations = {
   // Navbar
   "nav.home": { pt: "Início", en: "Home", de: "Startseite" },
+  "nav.portfolio": { pt: "Portfólio", en: "Portfolio", de: "Portfolio" },
   "nav.calculator": { pt: "Calculadora", en: "Calculator", de: "Rechner" },
   "nav.services": { pt: "Serviços", en: "Services", de: "Dienstleistungen" },
   "nav.meeting": { pt: "Reunião", en: "Meeting", de: "Besprechung" },
@@ -90,6 +91,7 @@ export const translations = {
   "meeting.cta": { pt: "Agendar Reunião", en: "Schedule Meeting", de: "Besprechung vereinbaren" },
   "meeting.success": { pt: "Email enviado com sucesso!", en: "Email sent successfully!", de: "E-Mail erfolgreich gesendet!" },
   "meeting.error": { pt: "Erro ao enviar email. Tente novamente.", en: "Error sending email. Please try again.", de: "Fehler beim Senden der E-Mail. Bitte versuchen Sie es erneut." },
+  "meeting.whatsapp_cta": { pt: "Falar no WhatsApp", en: "Chat on WhatsApp", de: "Auf WhatsApp chatten" },
 
   // Portfolio details
   "portfolio.adega.description": {
@@ -102,20 +104,15 @@ export const translations = {
     en: "A study project built with FlutterFlow. A customizable multi-business app that allows different companies to set up their stores with their own branding, product catalog, and order management.",
     de: "Ein Studienprojekt, entwickelt mit FlutterFlow. Eine anpassbare Multi-Unternehmens-App, die verschiedenen Unternehmen ermöglicht, ihre Geschäfte mit eigenem Branding, Produktkatalog und Bestellverwaltung einzurichten.",
   },
-  "portfolio.encomendeart.description": {
-    pt: "Layout completo criado em Figma com foco em responsividade. Um projeto de design para e-commerce de arte personalizada, com navegação intuitiva e experiência visual refinada em todos os dispositivos.",
-    en: "Complete layout designed in Figma with a focus on responsiveness. A design project for a custom art e-commerce, with intuitive navigation and refined visual experience across all devices.",
-    de: "Vollständiges Layout in Figma mit Fokus auf Responsivität. Ein Designprojekt für einen personalisierten Kunst-E-Commerce mit intuitiver Navigation und raffiniertem visuellen Erlebnis auf allen Geräten.",
-  },
   "portfolio.coordenacao.description": {
     pt: "App responsivo para coordenação de equipes em eventos. Permite cadastrar membros, montar grupos de trabalho por dia, organizar calendários de eventos e controlar dias de pagamento.",
     en: "Responsive app for team coordination at events. Allows registering members, assembling work groups by day, organizing event calendars, and managing payment schedules.",
     de: "Responsive App zur Teamkoordination bei Veranstaltungen. Ermöglicht die Registrierung von Mitgliedern, die Zusammenstellung von Arbeitsgruppen nach Tag, die Organisation von Eventkalendern und die Verwaltung von Zahlungsterminen.",
   },
-  "portfolio.locarcarro.description": {
-    pt: "App desenvolvido em Bubble onde usuários podem cadastrar seus carros elétricos para aluguel. Inclui gestão de veículos, reservas e experiência completa de locação.",
-    en: "App built with Bubble where users can list their electric cars for rental. Includes vehicle management, bookings, and a complete rental experience.",
-    de: "In Bubble entwickelte App, in der Benutzer ihre Elektroautos zur Vermietung anbieten können. Umfasst Fahrzeugverwaltung, Buchungen und ein komplettes Mieterlebnis.",
+  "portfolio.automacao.description": {
+    pt: "Automação comercial para distribuidoras que usam o ERP WinThor (Oracle). Inclui três automações: Relatórios de vendas e positivação, Cobrança automatizada e Análise de crédito automatizada. Roda todo dia, entrega as cobranças via WhatsApp, pesquisa crédito de novos clientes e envia acesso ao relatório por e-mail com filtros. Produto disponível para compra.",
+    en: "Commercial automation for distributors using the WinThor ERP (Oracle). It includes three automations: sales and coverage reports, automated collections, and automated credit analysis. It runs every day, delivers collections via WhatsApp, checks credit for new customers, and emails access to the report with filters. Product available for purchase.",
+    de: "Vertriebsautomatisierung für Distributoren mit dem WinThor ERP (Oracle). Sie umfasst drei Automatisierungen: Verkaufs- und Abdeckungsberichte, automatisiertes Mahnwesen und automatisierte Kreditanalyse. Läuft täglich, versendet Forderungen über WhatsApp, prüft die Kreditwürdigkeit neuer Kunden und sendet den Berichtszugang mit Filtern per E-Mail. Produkt zum Kauf verfügbar.",
   },
   "portfolio.useplus.description": {
     pt: "App com espaço dedicado para doação, troca e venda de itens infantis. Uma plataforma colaborativa que conecta famílias para reaproveitar produtos de forma prática e sustentável.",
