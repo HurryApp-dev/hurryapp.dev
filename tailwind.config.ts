@@ -99,7 +99,9 @@ export default {
               padding: "0.15em 0.4em",
               fontWeight: "400",
             },
-            "code::before, code::after": { content: "none" },
+            // Sem as crases que o plugin põe em volta do código (chave por seletor; vírgula não funciona aqui).
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
             pre: { border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" },
             blockquote: { fontStyle: "normal", backgroundColor: "hsl(var(--card) / 0.6)", borderRadius: "0 var(--radius) var(--radius) 0", padding: "0.1rem 1rem" },
             img: { borderRadius: "var(--radius)" },
