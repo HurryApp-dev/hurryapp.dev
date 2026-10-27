@@ -1,33 +1,41 @@
 # hurryapp.dev — site institucional
 
-Este é o código do site **publicado** em `https://www.hurryapp.dev`. Vite + React
-+ TypeScript + Tailwind, com shadcn/ui. Publicação pela Vercel.
+Este é o código do site **publicado** em `https://www.hurryapp.dev`. Next.js
+(App Router) + React + TypeScript + Tailwind, com shadcn/ui. Rotas: `/`,
+`/servicos`, `/contato` e a página 404 (`app/not-found.tsx`). Textos em
+português, inglês e alemão (`src/i18n`), com troca no cliente.
 
-## O formulário de contato usa EmailJS
+## O formulário de contato usa AWS SES
 
 `src/components/CalculatorSection.tsx` e `src/components/MeetingSection.tsx`
-enviam por `@emailjs/browser`. **Não há back-end, webhook nem API própria** por
-trás do formulário — se você procurar por um, não vai achar, e não é porque está
-faltando.
+enviam por `src/lib/enviarContato.ts`, que faz POST em `/api/contato`. Quem
+recebe é `app/api/contato/route.ts` (runtime Node): valida os campos
+(`src/lib/contato.ts`, com testes), confere a origem, descarta o honeypot
+`website` e manda o e-mail por `nodemailer` via SMTP do AWS SES.
 
-Os identificadores de service e template do EmailJS estão no código de propósito:
-é assim que a biblioteca funciona no navegador, e eles já viajam no bundle
-publicado. Não são segredo e não devem ser tratados como tal.
+As variáveis (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTATO_DE`,
+`CONTATO_PARA`) existem **só no `.env.local` do servidor**. O `.env.example` lista
+os nomes, sem valor. Sem elas a rota responde 500 e registra no log do servidor
+quais faltam.
 
 ## Antes de publicar, confira que é daqui
 
 Já existiu mais de um repositório com um site da HurryApp dentro, de desenhos
-diferentes. **Só este gera o que está no ar.** O teste rápido: o código publicado
-importa `@emailjs/browser`. Se o repositório em que você está não importa, não é
-este — e publicar dele troca um formulário que funciona por um que não funciona.
+diferentes. **Só este gera o que está no ar.** O teste rápido: existe
+`app/api/contato/route.ts`. Se o repositório em que você está não tem esse
+arquivo, não é este.
+
+Publicação no servidor da HurryApp, ver repositório de docs (a definir).
 
 ## Antes de mexer
 
 ```
 npm install
-npm run dev      # desenvolvimento
-npm run build    # confere que compila
-npm run test     # vitest
+npm run dev        # desenvolvimento
+npm run lint
+npm run typecheck
+npm test           # vitest
+npm run build      # confere que compila
 ```
 
 ## Segredos — nunca
@@ -36,9 +44,13 @@ Nenhuma chave, token ou `.env` com valor real entra aqui. **Este repositório é
 público.** O que entra aqui é lido por qualquer pessoa, para sempre, mesmo que
 seja apagado depois.
 
-## Git
+## Fluxo de trabalho
 
-`git pull` no começo, `git push` no fim. O `sincronizar.bat` faz os três passos.
+- Uma tarefa = uma branch a partir da `main` = um PR.
+- Nunca commit direto na `main`.
+- Quem não abriu o PR revisa (Samuel e Erica); quem abriu faz o merge.
+- O PR leva a saída de `npm run lint`, `typecheck`, `test` e `build`. O CI
+  (`.github/workflows/ci.yml`) roda os mesmos passos.
 
 ## Como este arquivo é lido
 
