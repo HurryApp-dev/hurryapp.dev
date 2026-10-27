@@ -62,11 +62,20 @@ export function validarContato(corpo: unknown): ResultadoValidacao {
 
 const HOSTS_PERMITIDOS = ["hurryapp.dev", "www.hurryapp.dev", "localhost"];
 
+// Hosts a mais vindos do servidor (CONTATO_HOSTS_EXTRA, separados por vírgula),
+// para testar o site num endereço provisório antes da troca de DNS.
+const hostsExtra = () =>
+  (process.env.CONTATO_HOSTS_EXTRA ?? "")
+    .split(",")
+    .map((host) => host.trim().toLowerCase())
+    .filter(Boolean);
+
 // Aceita só requisições vindas do próprio site (cabeçalho Origin).
-export function origemPermitida(origin: string | null): boolean {
+export function origemPermitida(origin: string | null, extras: string[] = hostsExtra()): boolean {
   if (!origin) return false;
   try {
-    return HOSTS_PERMITIDOS.includes(new URL(origin).hostname);
+    const host = new URL(origin).hostname;
+    return HOSTS_PERMITIDOS.includes(host) || extras.includes(host);
   } catch {
     return false;
   }

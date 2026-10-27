@@ -16,7 +16,9 @@ recebe é `app/api/contato/route.ts` (runtime Node): valida os campos
 As variáveis (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTATO_DE`,
 `CONTATO_PARA`) existem **só no `.env.local` do servidor**. O `.env.example` lista
 os nomes, sem valor. Sem elas a rota responde 500 e registra no log do servidor
-quais faltam.
+quais faltam. `CONTATO_HOSTS_EXTRA` (opcional) aceita outros hosts como origem do
+formulário, para testar num endereço provisório; fora isso, só `hurryapp.dev`,
+`www.hurryapp.dev` e `localhost`.
 
 ## Antes de publicar, confira que é daqui
 

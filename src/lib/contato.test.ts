@@ -108,4 +108,12 @@ describe("origemPermitida", () => {
     expect(origemPermitida("https://hurryapp.dev.malicioso.com")).toBe(false);
     expect(origemPermitida("https://outro.com")).toBe(false);
   });
+
+  it("aceita os hosts extras do servidor e só eles", () => {
+    const extras = ["novo.hurryapp.dev"];
+    expect(origemPermitida("https://novo.hurryapp.dev", extras)).toBe(true);
+    expect(origemPermitida("https://www.hurryapp.dev", extras)).toBe(true);
+    expect(origemPermitida("https://outro.hurryapp.dev", extras)).toBe(false);
+    expect(origemPermitida("https://novo.hurryapp.dev", [])).toBe(false);
+  });
 });
