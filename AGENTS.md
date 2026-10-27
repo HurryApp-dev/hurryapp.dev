@@ -2,7 +2,7 @@
 
 Este é o código do site **publicado** em `https://www.hurryapp.dev`. Next.js
 (App Router) + React + TypeScript + Tailwind, com shadcn/ui. Rotas: `/`,
-`/servicos`, `/contato` e a página 404 (`app/not-found.tsx`). Textos em
+`/servicos`, `/contato`, `/blog` (com `/blog/<slug>`) e a página 404 (`app/not-found.tsx`). Textos em
 português, inglês e alemão (`src/i18n`), com troca no cliente.
 
 ## O formulário de contato usa AWS SES
@@ -39,6 +39,25 @@ npm run typecheck
 npm test           # vitest
 npm run build      # confere que compila
 ```
+
+## Blog
+
+Os posts ficam em `content/blog/<slug>.mdx` (MDX via `@next/mdx`, sem CMS e sem
+banco). O nome do arquivo é o endereço: `/blog/<slug>`. Só quem tem acesso ao
+repositório escreve; os posts são só em pt-BR (a interface do blog é traduzida).
+
+- **Frontmatter** (YAML no topo, lido por `src/lib/blog.ts`): `title`,
+  `description`, `date` (AAAA-MM-DD) e `author` (`Samuel` ou `Erica`) são
+  obrigatórios; `tags`, `cover` e `draft` são opcionais. Faltou campo ou a data é
+  inválida: o `npm run build` falha dizendo qual post e qual campo.
+- **Imagens** em `public/blog/<slug>/`, citadas como `/blog/<slug>/arquivo.png`.
+- **Rascunho**: `draft: true` esconde o post da lista, do `sitemap.xml` e do RSS
+  (`/blog/rss.xml`) e dá 404 em produção. No `npm run dev` ele aparece, com a
+  etiqueta "Rascunho". `content/blog/como-escrever-um-post.mdx` é o guia e o
+  modelo, fica sempre como rascunho.
+- **Menu**: o link "Blog" só aparece quando há ao menos um post visível. Sem post
+  publicado, `/blog` dá 404 e sai do sitemap.
+- **Um PR por post.** Antes: `npm run lint`, `typecheck`, `test` e `build`.
 
 ## Segredos — nunca
 
