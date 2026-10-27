@@ -1,3 +1,5 @@
+"use client";
+
 import { MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import MeetingSection from "@/components/MeetingSection";

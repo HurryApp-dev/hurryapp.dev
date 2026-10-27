@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import {
   Boxes,
   CalendarClock,
@@ -27,17 +29,16 @@ const detailIcons: Record<ProductDetailIcon, LucideIcon> = {
 };
 
 const productImages: Record<string, string> = {
-  "automacao-comercial": portfolioAutomacaoLogo,
+  "automacao-comercial": portfolioAutomacaoLogo.src,
 };
 
 const Servicos = () => {
   const { language } = useLanguage();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [openDetail, setOpenDetail] = useState<string | null>(null);
 
   const goToContact = () => {
-    navigate("/contato");
-    window.scrollTo({ top: 0 });
+    router.push("/contato");
   };
 
   return (
