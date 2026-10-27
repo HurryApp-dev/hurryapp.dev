@@ -1,3 +1,5 @@
+"use client";
+
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 

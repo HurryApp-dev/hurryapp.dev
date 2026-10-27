@@ -1,12 +1,20 @@
+"use client";
+
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import watermark from "@/assets/watermark.png";
+import watermarkImg from "@/assets/watermark.png";
 import type { TranslationKey } from "@/i18n/translations";
 
-import defaultImg1 from "@/assets/how-step-1.png";
-import defaultImg2 from "@/assets/how-step-2.png";
-import defaultImg3 from "@/assets/how-step-3.png";
-import defaultImg4 from "@/assets/how-step-4.png";
+import defaultImg1Img from "@/assets/how-step-1.png";
+import defaultImg2Img from "@/assets/how-step-2.png";
+import defaultImg3Img from "@/assets/how-step-3.png";
+import defaultImg4Img from "@/assets/how-step-4.png";
+
+const watermark = watermarkImg.src;
+const defaultImg1 = defaultImg1Img.src;
+const defaultImg2 = defaultImg2Img.src;
+const defaultImg3 = defaultImg3Img.src;
+const defaultImg4 = defaultImg4Img.src;
 
 const defaultImages = [defaultImg1, defaultImg2, defaultImg3, defaultImg4];
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { Code, Layers, Monitor } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
