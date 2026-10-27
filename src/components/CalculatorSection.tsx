@@ -96,14 +96,10 @@ const CalculatorSection = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-              className="hidden"
-            />
+            {/* Honeypot: o atributo hidden (e não a classe) evita que o space-y-4 empurre o campo seguinte. */}
+            <div hidden aria-hidden="true">
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <div>
               <label className="block text-sm text-muted-foreground mb-1">{t("meeting.name")}</label>
               <input

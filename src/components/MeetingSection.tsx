@@ -43,14 +43,10 @@ const MeetingSection = () => {
         <p className="text-muted-foreground mb-10">{t("meeting.subtitle")}</p>
 
         <form onSubmit={handleSubmit} className="glass-card p-8 space-y-4 text-left">
-          <input
-            type="text"
-            name="website"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-          />
+          {/* Honeypot: o atributo hidden (e não a classe) evita que o space-y-4 empurre o campo seguinte. */}
+          <div hidden aria-hidden="true">
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
           {[
             { label: t("meeting.name"), key: "name" as const, type: "text" },
             { label: t("meeting.email"), key: "email" as const, type: "email" },
