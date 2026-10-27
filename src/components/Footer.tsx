@@ -1,12 +1,20 @@
+"use client";
+
 import { Linkedin } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
-import hurryIcon from "@/assets/hurryapp-icon.png";
-import hurryText from "@/assets/hurryapp-text.png";
-import devErica from "@/assets/dev-erica.jpg";
-import devSamuel from "@/assets/dev-samuel.jpg";
-import iconAcheumdev from "@/assets/icon-acheumdev.png";
+import hurryIconImg from "@/assets/hurryapp-icon.png";
+import hurryTextImg from "@/assets/hurryapp-text.png";
+import devEricaImg from "@/assets/dev-erica.jpg";
+import devSamuelImg from "@/assets/dev-samuel.jpg";
+import iconAcheumdevImg from "@/assets/icon-acheumdev.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
+
+const hurryIcon = hurryIconImg.src;
+const hurryText = hurryTextImg.src;
+const devErica = devEricaImg.src;
+const devSamuel = devSamuelImg.src;
+const iconAcheumdev = iconAcheumdevImg.src;
 
 const Footer = () => {
   const { t } = useLanguage();

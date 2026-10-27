@@ -1,64 +1,60 @@
+"use client";
+
 import { useState } from "react";
-import hurryIcon from "@/assets/hurryapp-icon.png";
-import hurryText from "@/assets/hurryapp-text.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import hurryIconImg from "@/assets/hurryapp-icon.png";
+import hurryTextImg from "@/assets/hurryapp-text.png";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import type { TranslationKey } from "@/i18n/translations";
 
-const navItems: { labelKey: TranslationKey; scrollId?: string; to?: string }[] = [
-  { labelKey: "nav.portfolio", scrollId: "portfolio" },
-  { labelKey: "nav.calculator", scrollId: "calculator" },
-  { labelKey: "nav.services", to: "/servicos" },
-  { labelKey: "nav.contact", to: "/contato" },
+const hurryIcon = hurryIconImg.src;
+const hurryText = hurryTextImg.src;
+
+// href com âncora (/#id) funciona em qualquer página: fora da home, o Next
+// navega para "/" e rola até o elemento.
+const navItems: { labelKey: TranslationKey; href: string }[] = [
+  { labelKey: "nav.portfolio", href: "/#portfolio" },
+  { labelKey: "nav.calculator", href: "/#calculator" },
+  { labelKey: "nav.services", href: "/servicos" },
+  { labelKey: "nav.contact", href: "/contato" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useLanguage();
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
-  const scrollTo = (id: string) => {
-    if (pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
+  // Na home, a rolagem suave é feita aqui; em outras páginas o Link navega.
+  const handleClick = (e: React.MouseEvent, href: string) => {
     setMobileOpen(false);
-  };
-
-  const handleNav = (item: (typeof navItems)[number]) => {
-    if (item.to) {
-      navigate(item.to);
-      window.scrollTo({ top: 0 });
-      setMobileOpen(false);
-    } else if (item.scrollId) {
-      scrollTo(item.scrollId);
+    const [path, hash] = href.split("#");
+    if (hash && pathname === (path || "/")) {
+      e.preventDefault();
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
+        <Link href="/#home" onClick={(e) => handleClick(e, "/#home")} className="flex items-center gap-2 cursor-pointer">
           <img src={hurryIcon} alt="HurryApp" className="h-10" />
           <img src={hurryText} alt="HurryApp" className="h-6 hidden sm:block" />
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.labelKey}
-              onClick={() => handleNav(item)}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {t(item.labelKey)}
-            </button>
+            </Link>
           ))}
           <LanguageSwitcher />
         </div>
@@ -77,13 +73,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-background border-t border-border/30 px-4 pb-4">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.labelKey}
-              onClick={() => handleNav(item)}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
               className="block w-full text-left py-3 text-muted-foreground hover:text-foreground transition-colors"
             >
               {t(item.labelKey)}
-            </button>
+            </Link>
           ))}
         </div>
       )}

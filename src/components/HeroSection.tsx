@@ -1,6 +1,11 @@
-import devicesHero from "@/assets/devices-hero.png";
-import watermark from "@/assets/watermark.png";
+"use client";
+
+import devicesHeroImg from "@/assets/devices-hero.png";
+import watermarkImg from "@/assets/watermark.png";
 import { useLanguage } from "@/i18n/LanguageContext";
+
+const devicesHero = devicesHeroImg.src;
+const watermark = watermarkImg.src;
 
 const HeroSection = () => {
   const { t } = useLanguage();

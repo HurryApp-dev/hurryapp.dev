@@ -1,22 +1,42 @@
+"use client";
+
 import { useState, useRef } from "react";
 import { ExternalLink } from "lucide-react";
-import portfolioAdega from "@/assets/portfolio-adega.png";
-import portfolioLogo2 from "@/assets/portfolio-logo2.jpg";
-import portfolioSuperloja from "@/assets/portfolio-superloja.jpg";
-import portfolioAdegaDetail from "@/assets/portfolio-adega-detail.jpg";
-import portfolioCoordenacaoLogo from "@/assets/portfolio-coordenacao-logo.jpg";
-import portfolioCoordenacaoDetail from "@/assets/portfolio-coordenacao-detail.jpg";
-import portfolioAutomacaoLogo from "@/assets/portfolio-automacao-logo.png";
-import portfolioAutomacaoDetail from "@/assets/portfolio-automacao-telas.jpg";
-import portfolioUseplusLogo from "@/assets/portfolio-useplus-logo.png";
-import portfolioUseplusDetail from "@/assets/portfolio-useplus-detail.jpg";
-import portfolioRapidoLogo from "@/assets/portfolio-rapidonobairro-logo.jpg";
-import portfolioRapidoDetail from "@/assets/portfolio-rapidonobairro-detail.png";
-import portfolioYnosLogo from "@/assets/portfolio-ynos-logo.jpg";
-import portfolioYnosDetail from "@/assets/portfolio-ynos-detail.jpg";
-import portfolioEsteiraLogo from "@/assets/portfolio-esteira-logo.jpg";
-import portfolioEsteiraDetail from "@/assets/portfolio-esteira-detail.jpg";
+import portfolioAdegaImg from "@/assets/portfolio-adega.png";
+import portfolioLogo2Img from "@/assets/portfolio-logo2.jpg";
+import portfolioSuperlojaImg from "@/assets/portfolio-superloja.jpg";
+import portfolioAdegaDetailImg from "@/assets/portfolio-adega-detail.jpg";
+import portfolioCoordenacaoLogoImg from "@/assets/portfolio-coordenacao-logo.jpg";
+import portfolioCoordenacaoDetailImg from "@/assets/portfolio-coordenacao-detail.jpg";
+import portfolioAutomacaoLogoImg from "@/assets/portfolio-automacao-logo.png";
+import portfolioAutomacaoDetailImg from "@/assets/portfolio-automacao-telas.jpg";
+import portfolioUseplusLogoImg from "@/assets/portfolio-useplus-logo.png";
+import portfolioUseplusDetailImg from "@/assets/portfolio-useplus-detail.jpg";
+import portfolioRapidoLogoImg from "@/assets/portfolio-rapidonobairro-logo.jpg";
+import portfolioRapidoDetailImg from "@/assets/portfolio-rapidonobairro-detail.png";
+import portfolioYnosLogoImg from "@/assets/portfolio-ynos-logo.jpg";
+import portfolioYnosDetailImg from "@/assets/portfolio-ynos-detail.jpg";
+import portfolioEsteiraLogoImg from "@/assets/portfolio-esteira-logo.jpg";
+import portfolioEsteiraDetailImg from "@/assets/portfolio-esteira-detail.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
+import type { TranslationKey } from "@/i18n/translations";
+
+const portfolioAdega = portfolioAdegaImg.src;
+const portfolioLogo2 = portfolioLogo2Img.src;
+const portfolioSuperloja = portfolioSuperlojaImg.src;
+const portfolioAdegaDetail = portfolioAdegaDetailImg.src;
+const portfolioCoordenacaoLogo = portfolioCoordenacaoLogoImg.src;
+const portfolioCoordenacaoDetail = portfolioCoordenacaoDetailImg.src;
+const portfolioAutomacaoLogo = portfolioAutomacaoLogoImg.src;
+const portfolioAutomacaoDetail = portfolioAutomacaoDetailImg.src;
+const portfolioUseplusLogo = portfolioUseplusLogoImg.src;
+const portfolioUseplusDetail = portfolioUseplusDetailImg.src;
+const portfolioRapidoLogo = portfolioRapidoLogoImg.src;
+const portfolioRapidoDetail = portfolioRapidoDetailImg.src;
+const portfolioYnosLogo = portfolioYnosLogoImg.src;
+const portfolioYnosDetail = portfolioYnosDetailImg.src;
+const portfolioEsteiraLogo = portfolioEsteiraLogoImg.src;
+const portfolioEsteiraDetail = portfolioEsteiraDetailImg.src;
 
 interface PortfolioItem {
   image: string;
@@ -160,7 +180,7 @@ const PortfolioSection = () => {
                 {selectedItem.name}
               </h3>
               <p className="text-muted-foreground mb-6">
-                {t(selectedItem.details.descriptionKey as any)}
+                {t(selectedItem.details.descriptionKey as TranslationKey)}
               </p>
 
               {selectedItem.details.link && (
@@ -170,7 +190,7 @@ const PortfolioSection = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
                 >
-                  {t("portfolio.viewProject" as any)}
+                  {t("portfolio.viewProject")}
                   <ExternalLink size={16} />
                 </a>
               )}

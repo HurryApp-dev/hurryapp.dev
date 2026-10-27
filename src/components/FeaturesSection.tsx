@@ -1,11 +1,20 @@
+"use client";
+
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
-import iconResponsive from "@/assets/icon-responsive.png";
-import iconCustom from "@/assets/icon-custom.png";
-import iconIntegration from "@/assets/icon-integration.png";
-import iconDesign from "@/assets/icon-design.png";
-import iconFaster from "@/assets/icon-faster.png";
-import iconPlatforms from "@/assets/icon-platforms.png";
+import iconResponsiveImg from "@/assets/icon-responsive.png";
+import iconCustomImg from "@/assets/icon-custom.png";
+import iconIntegrationImg from "@/assets/icon-integration.png";
+import iconDesignImg from "@/assets/icon-design.png";
+import iconFasterImg from "@/assets/icon-faster.png";
+import iconPlatformsImg from "@/assets/icon-platforms.png";
+
+const iconResponsive = iconResponsiveImg.src;
+const iconCustom = iconCustomImg.src;
+const iconIntegration = iconIntegrationImg.src;
+const iconDesign = iconDesignImg.src;
+const iconFaster = iconFasterImg.src;
+const iconPlatforms = iconPlatformsImg.src;
 
 const features: {image: string;titleKey: TranslationKey;descKey: TranslationKey;}[] = [
 { image: iconResponsive, titleKey: "features.responsive.title", descKey: "features.responsive.desc" },

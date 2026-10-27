@@ -1,0 +1,17 @@
+# dependências e builds
+node_modules
+.next
+out
+dist
+coverage
+next-env.d.ts
+*.tsbuildinfo
+
+# variáveis de ambiente (só o exemplo vai para o repo)
+.env*
+!.env.example
+
+# sistema
+.DS_Store
+Thumbs.db
+npm-debug.log*

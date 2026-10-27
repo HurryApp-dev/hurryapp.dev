@@ -1,0 +1,18 @@
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  globalIgnores([".next/**", "out/**", "build/**", "dist/**", "next-env.d.ts"]),
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+      // As imagens vêm de src/assets e são usadas pelo .src (layout igual ao do Vite).
+      "@next/next/no-img-element": "off",
+    },
+  },
+]);
+
+export default eslintConfig;

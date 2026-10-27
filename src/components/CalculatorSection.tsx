@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import iconOrcamento from "@/assets/icon-orcamento.png";
-import watermark from "@/assets/watermark.png";
-import emailjs from "@emailjs/browser";
+import iconOrcamentoImg from "@/assets/icon-orcamento.png";
+import watermarkImg from "@/assets/watermark.png";
+import { enviarContato } from "@/lib/enviarContato";
 import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
@@ -13,9 +15,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-const EMAILJS_SERVICE_ID = "service_7i379qx";
-const EMAILJS_TEMPLATE_ID = "template_6i532fz";
-const EMAILJS_PUBLIC_KEY = "GlpJfG5_rfMC9ZlOj";
+const iconOrcamento = iconOrcamentoImg.src;
+const watermark = watermarkImg.src;
 
 const CalculatorSection = () => {
   const { t } = useLanguage();
@@ -29,22 +30,19 @@ const CalculatorSection = () => {
     setSending(true);
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: form.name,
-          email: form.email,
-          message: form.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      );
+      await enviarContato({
+        origem: "calculadora",
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        website: String(new FormData(e.currentTarget as HTMLFormElement).get("website") ?? ""),
+      });
 
       toast({ title: t("meeting.success") });
       setForm({ name: "", email: "", message: "" });
       setOpen(false);
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Envio do formulario falhou:", error);
       toast({ title: t("meeting.error"), variant: "destructive" });
     } finally {
       setSending(false);
@@ -98,6 +96,10 @@ const CalculatorSection = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Honeypot: o atributo hidden (e não a classe) evita que o space-y-4 empurre o campo seguinte. */}
+            <div hidden aria-hidden="true">
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <div>
               <label className="block text-sm text-muted-foreground mb-1">{t("meeting.name")}</label>
               <input
