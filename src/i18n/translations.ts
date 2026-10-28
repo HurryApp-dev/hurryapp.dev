@@ -20,15 +20,15 @@ export const translations = {
 
 
   // Hero
-  "hero.tag": { pt: "Desenvolvimento de Software", en: "Software Development", de: "Softwareentwicklung" },
-  "hero.title1": { pt: "Aplicações muito mais rápidas com ", en: "Applications much faster with ", de: "Anwendungen viel schneller mit " },
-  "hero.title2": { pt: "especialistas No-code e IA", en: "No-code and AI experts", de: "No-Code- und KI-Experten" },
+  "hero.tag": { pt: "Soluções Tecnológicas", en: "Technology Solutions", de: "Technologische Lösungen" },
+  "hero.title1": { pt: "Tecnologia que trabalha por você! ", en: "Technology that works for you! ", de: "Technologie, die für Sie arbeitet! " },
+  "hero.title2": { pt: "Mais tempo para o seu negócio", en: "More time for your business", de: "Mehr Zeit für Ihr Unternehmen" },
   "hero.description": {
-    pt: "Criamos e desenvolvemos sistemas complexos sob medida. Ao dominar a tecnologia No-code e IA, entregamos a mesma qualidade da programação padrão até 5x mais rápido.",
-    en: "We create and develop complex bespoke systems. By mastering No-code and AI technology, we deliver the same quality as standard programming up to 5x faster.",
-    de: "Wir erstellen und entwickeln komplexe maßgeschneiderte Systeme. Durch die Beherrschung der No-Code- und KI-Technologie liefern wir die gleiche Qualität wie Standardprogrammierung bis zu 5x schneller.",
+    pt: "Automatizamos as rotinas da sua empresa e criamos soluções sob medida. Relatórios no seu WhatsApp, atendimento com IA, integração entre as ferramentas que você já usa: tudo funcionando sozinho, e entregue bem mais rápido que na programação tradicional.",
+    en: "We automate your company's routines and build tailor-made solutions. Reports on your WhatsApp, AI-powered customer service, integration between the tools you already use: everything running on its own, and delivered much faster than with traditional programming.",
+    de: "Wir automatisieren die Routinen Ihres Unternehmens und entwickeln maßgeschneiderte Lösungen. Berichte per WhatsApp, KI-gestützter Kundenservice, Integration der Tools, die Sie bereits nutzen: alles läuft von selbst und wird deutlich schneller geliefert als mit herkömmlicher Programmierung.",
   },
-  "hero.cta": { pt: "Tire suas dúvidas", en: "Clear your doubts", de: "Klären Sie Ihre Fragen" },
+  "hero.cta": { pt: "Fale com a gente", en: "Talk to us", de: "Sprechen Sie mit uns" },
 
   // Calculator
   "calc.title": { pt: "Calculadora", en: "Calculator", de: "Rechner" },
@@ -51,9 +51,9 @@ export const translations = {
   // Features / Services
   "features.title": { pt: "Nossos Serviços", en: "Our Services", de: "Unsere Dienstleistungen" },
   "features.subtitle": {
-    pt: "Desenvolvemos aplicativos completos e responsivos utilizando ferramentas No-code ou IA generativa de alta performance. Entregamos projetos com layouts totalmente personalizáveis, integrações de API com serviços de pagamento, automações inteligentes com N8N e WhatsApp, banco de dados externo com Supabase quando necessário, e muito mais — tudo com agilidade e qualidade profissional.",
-    en: "We build complete, responsive applications using high-performance No-code or generative AI tools. We deliver projects with fully customizable layouts, API integrations with payment services, smart automations with N8N and WhatsApp, external databases with Supabase when needed, and much more — all with speed and professional quality.",
-    de: "Wir entwickeln vollständige, responsive Anwendungen mit leistungsstarken No-Code- oder generativen KI-Tools. Wir liefern Projekte mit vollständig anpassbaren Layouts, API-Integrationen mit Zahlungsdiensten, intelligenten Automatisierungen mit N8N und WhatsApp, externen Datenbanken mit Supabase bei Bedarf und vielem mehr — alles mit Geschwindigkeit und professioneller Qualität.",
+    pt: "Desenvolvemos aplicativos completos e responsivos utilizando IA generativa de alta performance. Entregamos projetos com layouts totalmente personalizáveis, integrações de API com serviços de pagamento, automações inteligentes com N8N e WhatsApp, banco de dados externo com Supabase quando necessário, e muito mais — tudo com agilidade e qualidade profissional.",
+    en: "We build complete, responsive applications using high-performance generative AI. We deliver projects with fully customizable layouts, API integrations with payment services, smart automations with N8N and WhatsApp, external databases with Supabase when needed, and much more — all with speed and professional quality.",
+    de: "Wir entwickeln vollständige, responsive Anwendungen mit leistungsstarker generativer KI. Wir liefern Projekte mit vollständig anpassbaren Layouts, API-Integrationen mit Zahlungsdiensten, intelligenten Automatisierungen mit N8N und WhatsApp, externen Datenbanken mit Supabase bei Bedarf und vielem mehr — alles mit Geschwindigkeit und professioneller Qualität.",
   },
   "features.responsive.title": { pt: "Incluímos IA", en: "We include AI", de: "Wir integrieren KI" },
   "features.responsive.desc": { pt: "Seu projeto precisa que uma IA seja inclusa e responda dentro da sua aplicação ou por mensagem.", en: "Your project needs an AI to be included and respond within your application or by message.", de: "Ihr Projekt benötigt eine integrierte KI, die in Ihrer Anwendung oder per Nachricht antwortet." },
@@ -69,12 +69,22 @@ export const translations = {
   "features.platforms.desc": { pt: "Os usuários podem acessar seu app pelo desktop, notebook, tablet ou celular via link, pelo navegador, ou baixando da Play Store ou Apple Store", en: "Users can access your app on desktop, laptop, tablet or mobile via link, through the browser, or by downloading it from Play Store or Apple Store", de: "Benutzer können über Desktop, Notebook, Tablet oder Handy per Link, Browser oder Download aus dem Play Store oder Apple Store zugreifen" },
 
   // Development
-  "dev.title": { pt: "Desenvolvimento", en: "Development", de: "Entwicklung" },
-  "dev.desc1": { pt: "Ao dominar a tecnologia No-code ou de IA, podemos entregar um produto de alto nível pela metade do custo/tempo do mercado tradicional.", en: "By mastering No-code or AI technology, we can deliver a high-level product at half the cost/time of the traditional market.", de: "Durch die Beherrschung der No-Code- oder KI-Technologie können wir ein High-Level-Produkt zu halben Kosten/Zeit liefern." },
-  "dev.desc2": { pt: "A área de Desenvolvimento é responsável pelas seguintes etapas de um projeto:", en: "The Development area is responsible for the following stages of a project:", de: "Der Entwicklungsbereich ist für folgende Projektphasen verantwortlich:" },
-  "dev.item1": { pt: "Desenvolver um escopo, esclarecendo dúvidas e organizando as etapas seguintes.", en: "Develop a scope, clarifying doubts and organizing the next steps.", de: "Einen Umfang entwickeln, Fragen klären und die nächsten Schritte organisieren." },
-  "dev.item2": { pt: "Desenvolver os layouts das páginas e tornando-as intuitivas com um IU e UX incrível.", en: "Develop page layouts making them intuitive with an incredible UI and UX.", de: "Seitenlayouts entwickeln und sie mit einer großartigen UI und UX intuitiv gestalten." },
-  "dev.item3": { pt: "Programar as funcionalidades e integrar com os serviços externos necessários.", en: "Program the functionalities and integrate with the necessary external services.", de: "Die Funktionalitäten programmieren und mit den erforderlichen externen Diensten integrieren." },
+  "dev.tag": { pt: "Desenvolvimento", en: "Development", de: "Entwicklung" },
+  "dev.title1": { pt: "Você conta o desafio. ", en: "You tell us the challenge. ", de: "Sie nennen die Herausforderung. " },
+  "dev.title2": { pt: "A gente entrega a solução.", en: "We deliver the solution.", de: "Wir liefern die Lösung." },
+  "dev.desc": {
+    pt: "Escutamos a dificuldade da sua empresa, apresentamos soluções novas e desenvolvemos tudo sob medida. No fim, você sai ganhando em tempo e em qualidade.",
+    en: "We listen to your company's challenges, present new solutions and build everything to fit. In the end, you come out ahead in both time and quality.",
+    de: "Wir hören auf die Herausforderungen Ihres Unternehmens, präsentieren neue Lösungen und entwickeln alles maßgeschneidert. Am Ende gewinnen Sie an Zeit und Qualität.",
+  },
+  "dev.step1.title": { pt: "Escutamos", en: "We listen", de: "Wir hören zu" },
+  "dev.step1.desc": { pt: "Entendemos a dificuldade real do seu dia a dia, com atenção em cada detalhe.", en: "We understand the real difficulty of your day-to-day, with attention to every detail.", de: "Wir verstehen die tatsächlichen Schwierigkeiten Ihres Alltags, mit Aufmerksamkeit für jedes Detail." },
+  "dev.step2.title": { pt: "Propomos", en: "We propose", de: "Wir schlagen vor" },
+  "dev.step2.desc": { pt: "Apresentamos soluções novas, pensadas para o seu caso.", en: "We present new solutions, designed for your case.", de: "Wir präsentieren neue Lösungen, zugeschnitten auf Ihren Fall." },
+  "dev.step3.title": { pt: "Desenvolvemos", en: "We build", de: "Wir entwickeln" },
+  "dev.step3.desc": { pt: "Construímos, integramos suas ferramentas e entregamos com sua aprovação por etapas.", en: "We build, integrate your tools and deliver with your approval at each stage.", de: "Wir entwickeln, integrieren Ihre Tools und liefern mit Ihrer Freigabe in jeder Etappe." },
+  "dev.step4.title": { pt: "Você ganha", en: "You win", de: "Sie gewinnen" },
+  "dev.step4.desc": { pt: "Mais tempo, mais qualidade e rotinas que funcionam sozinhas.", en: "More time, higher quality and routines that run on their own.", de: "Mehr Zeit, mehr Qualität und Abläufe, die von selbst laufen." },
 
   // Portfolio
   "portfolio.title": { pt: "Portfólio", en: "Portfolio", de: "Portfolio" },
