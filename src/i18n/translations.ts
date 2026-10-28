@@ -8,6 +8,16 @@ export const translations = {
   "nav.services": { pt: "Serviços", en: "Services", de: "Dienstleistungen" },
   "nav.meeting": { pt: "Reunião", en: "Meeting", de: "Besprechung" },
   "nav.contact": { pt: "Contato", en: "Contact", de: "Kontakt" },
+  "nav.blog": { pt: "Blog", en: "Blog", de: "Blog" },
+
+  // Blog (os posts em si são só em pt-BR)
+  "blog.title": { pt: "Blog", en: "Blog", de: "Blog" },
+  "blog.subtitle": { pt: "Textos da equipe HurryApp", en: "Writing from the HurryApp team", de: "Beiträge des HurryApp-Teams" },
+  "blog.publishedOn": { pt: "Publicado em", en: "Published on", de: "Veröffentlicht am" },
+  "blog.by": { pt: "por", en: "by", de: "von" },
+  "blog.back": { pt: "Voltar ao blog", en: "Back to blog", de: "Zurück zum Blog" },
+  "blog.draft": { pt: "Rascunho", en: "Draft", de: "Entwurf" },
+
 
   // Hero
   "hero.tag": { pt: "Desenvolvimento de Software", en: "Software Development", de: "Softwareentwicklung" },

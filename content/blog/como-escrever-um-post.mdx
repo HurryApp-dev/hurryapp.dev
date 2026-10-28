@@ -1,0 +1,68 @@
+---
+title: "Como escrever um post no blog da HurryApp"
+description: "Guia para quem tem acesso ao repositório: frontmatter, imagens, pré-visualização e PR."
+date: 2026-10-27
+author: Samuel
+tags: ["guia", "blog"]
+draft: true
+---
+
+Este post é o modelo e **nunca vai ao ar**: ele tem `draft: true`. Copie o arquivo, troque o conteúdo e tire o `draft` do seu.
+
+## 1. Crie o arquivo
+
+Um post é um arquivo em `content/blog/<slug>.mdx`. O nome do arquivo vira o endereço: `content/blog/meu-post.mdx` fica em `https://www.hurryapp.dev/blog/meu-post`. Use letras minúsculas, números e hífens, sem acento.
+
+## 2. Frontmatter
+
+O bloco entre `---` no topo é obrigatório:
+
+```yaml
+---
+title: "Título do post"          # obrigatório
+description: "Uma frase."        # obrigatório (aparece na lista e no Google)
+date: 2026-10-27                 # obrigatório, AAAA-MM-DD
+author: Samuel                   # obrigatório: Samuel ou Erica
+tags: ["no-code", "ia"]          # opcional
+cover: /blog/meu-post/capa.png   # opcional
+draft: true                      # opcional: true esconde o post em produção
+---
+```
+
+Sem `title`, `description`, `date` ou `author`, o `npm run build` falha dizendo qual post e qual campo faltam.
+
+## 3. Texto
+
+O corpo é Markdown: títulos com `##`, listas, **negrito**, [links](https://www.hurryapp.dev), citações, tabelas e blocos de código.
+
+> Citações aparecem com uma barra na cor da marca.
+
+O título do post já é o `h1`; comece as seções em `##`.
+
+## 4. Imagens
+
+Coloque os arquivos em `public/blog/<slug>/` e use o caminho a partir de `/blog/`:
+
+```md
+![Descrição da imagem para leitores de tela](/blog/meu-post/tela.png)
+```
+
+Sempre escreva o texto alternativo. Prefira imagens com até uns 200 KB.
+
+## 5. Pré-visualizar
+
+```
+npm install
+npm run dev
+```
+
+Abra `http://localhost:3000/blog`. No `npm run dev`, posts com `draft: true` aparecem (com a etiqueta "Rascunho"); em produção, não. Confira também no celular (largura de 390 px).
+
+## 6. Publicar
+
+1. Crie uma branch a partir da `main`: `git switch -c post/meu-post`.
+2. Tire o `draft: true` (ou ponha `false`) quando o texto estiver pronto.
+3. Rode `npm run lint`, `npm run typecheck`, `npm test` e `npm run build`.
+4. Abra **um PR por post**. Quem não abriu o PR revisa; quem abriu faz o merge.
+
+Depois do merge o post entra na lista, no `sitemap.xml` e no feed `/blog/rss.xml`. Enquanto não houver nenhum post publicado, o link "Blog" nem aparece no menu.

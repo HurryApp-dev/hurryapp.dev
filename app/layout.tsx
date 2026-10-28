@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Providers from "@/components/Providers";
+import { listarPosts } from "@/lib/blogFs";
 import "@/index.css";
 
 const inter = Inter({
@@ -90,12 +91,15 @@ const jsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="Blog HurryApp" href="/blog/rss.xml" />
+      </head>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\u003c") }}
         />
-        <Providers>{children}</Providers>
+        <Providers temBlog={listarPosts().length > 0}>{children}</Providers>
       </body>
     </html>
   );

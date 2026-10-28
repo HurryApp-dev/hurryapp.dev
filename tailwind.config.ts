@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 export default {
   darkMode: ["class"],
@@ -68,6 +69,45 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // Texto dos posts: cores do tema escuro (variáveis do index.css).
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "hsl(var(--foreground) / 0.88)",
+            "--tw-prose-headings": "hsl(var(--foreground))",
+            "--tw-prose-lead": "hsl(var(--muted-foreground))",
+            "--tw-prose-links": "hsl(var(--primary))",
+            "--tw-prose-bold": "hsl(var(--foreground))",
+            "--tw-prose-counters": "hsl(var(--muted-foreground))",
+            "--tw-prose-bullets": "hsl(var(--muted-foreground))",
+            "--tw-prose-hr": "hsl(var(--border))",
+            "--tw-prose-quotes": "hsl(var(--foreground))",
+            "--tw-prose-quote-borders": "hsl(var(--primary))",
+            "--tw-prose-captions": "hsl(var(--muted-foreground))",
+            "--tw-prose-code": "hsl(var(--foreground))",
+            "--tw-prose-pre-code": "hsl(var(--foreground))",
+            "--tw-prose-pre-bg": "hsl(var(--card))",
+            "--tw-prose-th-borders": "hsl(var(--border))",
+            "--tw-prose-td-borders": "hsl(var(--border))",
+            a: { textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: "500" },
+            "a:hover": { color: "hsl(var(--accent-foreground))" },
+            "h1, h2, h3, h4": { fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" },
+            // Código em linha com fundo; o bloco `pre` tem o seu próprio.
+            ":not(pre) > code": {
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: "0.375rem",
+              padding: "0.15em 0.4em",
+              fontWeight: "400",
+            },
+            // Sem as crases que o plugin põe em volta do código (chave por seletor; vírgula não funciona aqui).
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
+            pre: { border: "1px solid hsl(var(--border))", borderRadius: "var(--radius)" },
+            blockquote: { fontStyle: "normal", backgroundColor: "hsl(var(--card) / 0.6)", borderRadius: "0 var(--radius) var(--radius) 0", padding: "0.1rem 1rem" },
+            img: { borderRadius: "var(--radius)" },
+          },
+        },
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -89,5 +129,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, typography],
 } satisfies Config;

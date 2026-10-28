@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import type { TranslationKey } from "@/i18n/translations";
+import { useTemBlog } from "./Providers";
 
 const hurryIcon = hurryIconImg.src;
 const hurryText = hurryTextImg.src;
@@ -21,11 +22,15 @@ const navItems: { labelKey: TranslationKey; href: string }[] = [
   { labelKey: "nav.services", href: "/servicos" },
   { labelKey: "nav.contact", href: "/contato" },
 ];
+const blogItem: { labelKey: TranslationKey; href: string } = { labelKey: "nav.blog", href: "/blog" };
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useLanguage();
   const pathname = usePathname();
+  // "Blog" só entra no menu quando há ao menos um post visível.
+  const temBlog = useTemBlog();
+  const items = temBlog ? [...navItems.slice(0, 3), blogItem, navItems[3]] : navItems;
 
   // Na home, a rolagem suave é feita aqui; em outras páginas o Link navega.
   const handleClick = (e: React.MouseEvent, href: string) => {
@@ -46,7 +51,7 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.labelKey}
               href={item.href}
@@ -72,7 +77,7 @@ const Navbar = () => {
 
       {mobileOpen && (
         <div className="md:hidden bg-background border-t border-border/30 px-4 pb-4">
-          {navItems.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.labelKey}
               href={item.href}
