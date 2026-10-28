@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Linkedin } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import hurryIconImg from "@/assets/hurryapp-icon.png";
@@ -8,7 +9,6 @@ import devEricaImg from "@/assets/dev-erica.jpg";
 import devSamuelImg from "@/assets/dev-samuel.jpg";
 import iconAcheumdevImg from "@/assets/icon-acheumdev.png";
 import { useLanguage } from "@/i18n/LanguageContext";
-import type { TranslationKey } from "@/i18n/translations";
 
 const hurryIcon = hurryIconImg.src;
 const hurryText = hurryTextImg.src;
@@ -18,18 +18,6 @@ const iconAcheumdev = iconAcheumdevImg.src;
 
 const Footer = () => {
   const { t } = useLanguage();
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navItems: {labelKey: TranslationKey;scrollId: string;}[] = [
-  { labelKey: "nav.home", scrollId: "home" },
-  { labelKey: "nav.calculator", scrollId: "calculator" },
-  { labelKey: "nav.services", scrollId: "services" },
-  { labelKey: "nav.meeting", scrollId: "meeting" },
-  { labelKey: "nav.contact", scrollId: "contact" }];
-
 
   return (
     <footer id="contact" className="py-16 bg-card border-t border-border/30">
@@ -53,18 +41,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          
-
-
-
-
-
-
-
-
-
-
-          
+          <div>
+            <h4 className="font-semibold font-display mb-4">{t("nav.contact")}</h4>
+            <Link href="/contato" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t("hero.cta")}
+            </Link>
+          </div>
 
           <div>
             <h4 className="font-semibold font-display mb-4">Developers</h4>

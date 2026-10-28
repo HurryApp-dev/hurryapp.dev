@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import devicesHeroImg from "@/assets/devices-hero.png";
 import watermarkImg from "@/assets/watermark.png";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -9,10 +10,6 @@ const watermark = watermarkImg.src;
 
 const HeroSection = () => {
   const { t } = useLanguage();
-
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="home" className="min-h-[85vh] flex items-center pt-20 relative overflow-hidden bg-background">
@@ -28,12 +25,12 @@ const HeroSection = () => {
           <p className="text-muted-foreground text-lg mb-8 max-w-lg leading-relaxed">
             {t("hero.description")}
           </p>
-          <button
-            onClick={scrollToContact}
-            className="bg-gradient-primary text-primary-foreground px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
+          <Link
+            href="/contato"
+            className="inline-block bg-gradient-primary text-primary-foreground px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity">
 
             {t("hero.cta")}
-          </button>
+          </Link>
         </div>
 
         <div className="flex justify-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
