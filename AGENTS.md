@@ -27,7 +27,9 @@ diferentes. **Só este gera o que está no ar.** O teste rápido: existe
 `app/api/contato/route.ts`. Se o repositório em que você está não tem esse
 arquivo, não é este.
 
-Publicação no servidor da HurryApp, ver repositório de docs (a definir).
+**Publicação é automática:** o que entra na `main` vai ao ar sozinho em até uns 5 minutos (o
+servidor da HurryApp baixa, faz o build e troca a versão; se o build falhar, a versão anterior
+continua no ar). Por isso nada entra na `main` sem lint, typecheck, test e build passando.
 
 ## Antes de mexer
 
@@ -69,7 +71,8 @@ seja apagado depois.
 
 - Uma tarefa = uma branch a partir da `main` = um PR.
 - Nunca commit direto na `main`.
-- Quem não abriu o PR revisa (Samuel e Erica); quem abriu faz o merge.
+- Quem abriu o PR pode fazer o merge sem esperar revisão (Samuel e Erica decidem sozinhos); peça
+  revisão à outra pessoa quando quiser uma segunda leitura. O CI precisa estar verde.
 - O PR leva a saída de `npm run lint`, `typecheck`, `test` e `build`. O CI
   (`.github/workflows/ci.yml`) roda os mesmos passos.
 
