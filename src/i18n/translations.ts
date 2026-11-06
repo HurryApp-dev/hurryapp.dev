@@ -114,6 +114,11 @@ export const translations = {
   "meeting.whatsapp_cta": { pt: "Falar no WhatsApp", en: "Chat on WhatsApp", de: "Auf WhatsApp chatten" },
 
   // Portfolio details
+  "portfolio.atendeai.description": {
+    pt: "Atendente de inteligência artificial no WhatsApp para pequenos negócios: responde os clientes a qualquer hora com o que a empresa ensinou (perguntas e respostas, informações e arquivos) e marca horários direto na agenda. Feito em Next.js com Supabase, automações em N8N e integração com Asaas para pagamento. Em fase final, antes do lançamento.",
+    en: "An artificial intelligence attendant on WhatsApp for small businesses: it answers customers at any hour with what the company has taught it (questions and answers, information and files) and books appointments straight into the calendar. Built with Next.js and Supabase, N8N automations and Asaas payment integration. In its final phase, before launch.",
+    de: "Ein KI-Assistent auf WhatsApp für kleine Unternehmen: Er beantwortet Kundenanfragen zu jeder Uhrzeit mit dem, was das Unternehmen ihm beigebracht hat (Fragen und Antworten, Informationen und Dateien) und trägt Termine direkt in den Kalender ein. Entwickelt mit Next.js und Supabase, N8N-Automatisierungen und Asaas-Zahlungsintegration. In der Endphase, vor dem Launch.",
+  },
   "portfolio.adega.description": {
     pt: "Aplicativo completo para gestão de adegas, com catálogo de vinhos, controle de estoque e experiência de compra personalizada. Feita em Bubble com integração com Mercado Pago e Google Rota. Produto disponível para compra.",
     en: "Complete wine cellar management app with wine catalog, stock control, and personalized shopping experience. Made in Bubble with integration with Mercado Pago and Google Route. Product available for purchase.",

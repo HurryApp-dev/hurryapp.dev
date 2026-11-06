@@ -18,6 +18,8 @@ import portfolioYnosLogoImg from "@/assets/portfolio-ynos-logo.jpg";
 import portfolioYnosDetailImg from "@/assets/portfolio-ynos-detail.jpg";
 import portfolioEsteiraLogoImg from "@/assets/portfolio-esteira-logo.jpg";
 import portfolioEsteiraDetailImg from "@/assets/portfolio-esteira-detail.jpg";
+import portfolioAtendeaiLogoImg from "@/assets/portfolio-atendeai-logo.png";
+import portfolioAtendeaiDetailImg from "@/assets/portfolio-atendeai-detail.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
 
@@ -37,12 +39,15 @@ const portfolioYnosLogo = portfolioYnosLogoImg.src;
 const portfolioYnosDetail = portfolioYnosDetailImg.src;
 const portfolioEsteiraLogo = portfolioEsteiraLogoImg.src;
 const portfolioEsteiraDetail = portfolioEsteiraDetailImg.src;
+const portfolioAtendeaiLogo = portfolioAtendeaiLogoImg.src;
+const portfolioAtendeaiDetail = portfolioAtendeaiDetailImg.src;
 
 interface PortfolioItem {
   image: string;
   name: string;
   details?: {
     photos: string[];
+    video?: string;
     description: string;
     descriptionKey: string;
     link?: string;
@@ -50,6 +55,17 @@ interface PortfolioItem {
 }
 
 const portfolioItems: PortfolioItem[] = [
+  {
+    image: portfolioAtendeaiLogo,
+    name: "AtendeAI",
+    details: {
+      photos: [portfolioAtendeaiDetail],
+      video: "/portfolio/atendeai.mp4",
+      description: "",
+      descriptionKey: "portfolio.atendeai.description",
+      link: "https://atendeai.hurryapp.dev/",
+    },
+  },
   {
     image: portfolioAdega,
     name: "Adega Ventura",
@@ -195,7 +211,19 @@ const PortfolioSection = () => {
                 </a>
               )}
 
-              {selectedItem.details.photos.length > 0 && (
+              {selectedItem.details.video && (
+                <video
+                  key={selectedItem.details.video}
+                  src={selectedItem.details.video}
+                  poster={selectedItem.details.photos[0]}
+                  controls
+                  playsInline
+                  preload="none"
+                  className="rounded-lg w-full border border-border"
+                />
+              )}
+
+              {!selectedItem.details.video && selectedItem.details.photos.length > 0 && (
                 <div className="grid grid-cols-1 gap-4">
                   {selectedItem.details.photos.map((photo, idx) => (
                     <img
