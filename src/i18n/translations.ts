@@ -90,6 +90,60 @@ export const translations = {
   "portfolio.title": { pt: "Portfólio", en: "Portfolio", de: "Portfolio" },
   "portfolio.viewProject": { pt: "Visualizar Projeto", en: "View Project", de: "Projekt ansehen" },
 
+  // Depoimentos (o texto em pt é o original do cliente; en/de são traduções)
+  "testimonials.title1": { pt: "Quem trabalhou com a gente", en: "Those who worked with us", de: "Wer mit uns gearbeitet hat," },
+  "testimonials.title2": { pt: "recomenda", en: "recommend us", de: "empfiehlt uns" },
+  "testimonials.subtitle": {
+    pt: "Avaliações reais de clientes que tiraram projetos do papel com o Samuel, sócio da HurryApp. Todas com nota máxima.",
+    en: "Real reviews from clients who brought their projects to life with Samuel, co-founder of HurryApp. All with top marks.",
+    de: "Echte Bewertungen von Kunden, die ihre Projekte mit Samuel, Mitgründer von HurryApp, verwirklicht haben. Alle mit Höchstnote.",
+  },
+  "testimonials.criteria.quality": { pt: "Qualidade", en: "Quality", de: "Qualität" },
+  "testimonials.criteria.deadline": { pt: "Prazo", en: "Deadline", de: "Termintreue" },
+  "testimonials.criteria.communication": { pt: "Comunicação", en: "Communication", de: "Kommunikation" },
+  "testimonials.criteria.again": { pt: "Trabalharia novamente", en: "Would work again", de: "Würde wieder zusammenarbeiten" },
+  "testimonials.note": {
+    pt: "Notas dadas pelos próprios clientes ao final de cada projeto.",
+    en: "Ratings given by the clients themselves at the end of each project. Reviews translated from Portuguese.",
+    de: "Bewertungen der Kunden selbst am Ende jedes Projekts. Aus dem Portugiesischen übersetzt.",
+  },
+  "testimonials.1.headline": {
+    pt: "“Quero levar para todos os projetos que eu tiver.”",
+    en: "“I want to bring him to every project I have.”",
+    de: "„Ich möchte ihn bei jedem meiner Projekte dabeihaben.“",
+  },
+  "testimonials.1.text": {
+    pt: "O Samuel foi um cara que conheci em 2024 e que quero levar para todos os projetos que eu tiver. Dificilmente hoje em dia tem devs como ele, que além de ser um ótimo profissional, cheio de experiências, ainda é comunicativo, sempre atualizando sobre o projeto, tirando dúvidas e tem o compromisso de sempre entregar no prazo. Além de tudo isso é um ser humano incrível, certamente vou estar sempre trabalhando com ele!",
+    en: "I met Samuel in 2024 and I want to bring him to every project I have. It's rare these days to find devs like him: besides being a great professional with lots of experience, he communicates well, always keeps you updated on the project, answers questions and is committed to always delivering on time. On top of all that, he's an incredible human being. I'll certainly keep working with him!",
+    de: "Ich habe Samuel 2024 kennengelernt und möchte ihn bei jedem meiner Projekte dabeihaben. Entwickler wie ihn findet man heute selten: Er ist nicht nur ein hervorragender, sehr erfahrener Profi, sondern auch kommunikativ, hält einen stets über das Projekt auf dem Laufenden, beantwortet Fragen und liefert verlässlich pünktlich. Und vor allem ist er ein großartiger Mensch. Ich werde ganz sicher weiter mit ihm arbeiten!",
+  },
+  "testimonials.1.who": { pt: "Cliente desde 2024", en: "Client since 2024", de: "Kunde seit 2024" },
+  "testimonials.1.date": { pt: "mai. 2025", en: "May 2025", de: "Mai 2025" },
+  "testimonials.2.headline": {
+    pt: "“Transforma ideias soltas em algo real, funcional e bem estruturado.”",
+    en: "“He turns loose ideas into something real, functional and well structured.”",
+    de: "„Er macht aus losen Ideen etwas Echtes, Funktionierendes und gut Strukturiertes.“",
+  },
+  "testimonials.2.text": {
+    pt: "A minha experiência com o Samuel foi simplesmente extraordinária. Desde o primeiro contato, ficou claro o quanto ele é competente, dedicado e profundo no que faz. Ele não só entendeu exatamente tudo o que eu precisava, como foi muito além: organizou, corrigiu, criou soluções novas e entregou tudo com um profissionalismo raro de se encontrar.\n\nTrabalhar com o Samuel foi leve, rápido e produtivo. Ele domina Bubble, n8n, integrações com IA, lógica de processos e principalmente sabe transformar ideias soltas em algo real, funcional e bem estruturado.\n\nSinceramente, foi uma das melhores experiências profissionais que já tive. O Samuel entrega excelência — e entrega com paixão. Recomendo de olhos fechados.",
+    en: "My experience with Samuel was simply extraordinary. From the very first contact it was clear how competent, dedicated and thorough he is. He not only understood exactly everything I needed, he went far beyond: he organized, fixed, created new solutions and delivered everything with a professionalism that is rare to find.\n\nWorking with Samuel was easy, fast and productive. He masters Bubble, n8n, AI integrations and process logic, and above all he knows how to turn loose ideas into something real, functional and well structured.\n\nHonestly, it was one of the best professional experiences I've ever had. Samuel delivers excellence — and delivers it with passion. I recommend him without hesitation.",
+    de: "Meine Erfahrung mit Samuel war einfach außergewöhnlich. Vom ersten Kontakt an war klar, wie kompetent, engagiert und gründlich er arbeitet. Er hat nicht nur genau verstanden, was ich brauchte, sondern ist weit darüber hinausgegangen: Er hat organisiert, korrigiert, neue Lösungen entwickelt und alles mit einer selten anzutreffenden Professionalität geliefert.\n\nDie Zusammenarbeit mit Samuel war unkompliziert, schnell und produktiv. Er beherrscht Bubble, n8n, KI-Integrationen und Prozesslogik, und vor allem versteht er es, aus losen Ideen etwas Echtes, Funktionierendes und gut Strukturiertes zu machen.\n\nEhrlich gesagt war es eine der besten beruflichen Erfahrungen, die ich je hatte. Samuel liefert Exzellenz — und das mit Leidenschaft. Ich empfehle ihn ohne Vorbehalt.",
+  },
+  "testimonials.2.who": { pt: "Projeto com Bubble, n8n e IA", en: "Bubble, n8n and AI project", de: "Projekt mit Bubble, n8n und KI" },
+  "testimonials.2.date": { pt: "nov. 2025", en: "Nov 2025", de: "Nov. 2025" },
+  "testimonials.3.headline": {
+    pt: "“Esperava 14 meses de desenvolvimento. Foi concluído em 8.”",
+    en: "“I expected 14 months of development. It was done in 8.”",
+    de: "„Ich hatte mit 14 Monaten Entwicklung gerechnet. Fertig war es nach 8.“",
+  },
+  "testimonials.3.text": {
+    pt: "Eu sou Gerente de Projetos de uma empresa de moda, principalmente automação industrial. Temos o faturamento anual estimado em 55 milhões de reais.\nEstávamos com muito problema em controlar a nossa cadeia de produção, por ser algo muito diferente e as soluções prontas serem \"travadas\", eu confesso que fiquei muito surpreso com o resultado prestado e com o tempo entregue.\nComo gerente de projetos, eu estava esperando que o desenvolvimento fosse demorar cerca de 14 meses, mas foi concluído em 8 meses.",
+    en: "I'm a Project Manager at a fashion company, mainly in industrial automation. Our estimated annual revenue is 55 million reais.\nWe had a lot of trouble controlling our production chain, since it's very different and off-the-shelf solutions are too rigid. I confess I was very surprised by the result and by the delivery time.\nAs a project manager, I expected development to take about 14 months, but it was finished in 8.",
+    de: "Ich bin Projektmanager in einem Modeunternehmen, vor allem im Bereich Industrieautomatisierung. Unser geschätzter Jahresumsatz liegt bei 55 Millionen Reais.\nWir hatten große Probleme, unsere Produktionskette zu steuern, weil sie sehr speziell ist und Standardlösungen zu starr sind. Ich gebe zu, ich war vom Ergebnis und von der Lieferzeit sehr überrascht.\nAls Projektmanager hatte ich mit etwa 14 Monaten Entwicklung gerechnet, fertig war es nach 8 Monaten.",
+  },
+  "testimonials.3.who": { pt: "Gerente de Projetos, indústria de moda", en: "Project Manager, fashion industry", de: "Projektmanager, Modeindustrie" },
+  "testimonials.3.date": { pt: "nov. 2025", en: "Nov 2025", de: "Nov. 2025" },
+
   // How we work
   "how.title": { pt: "Como trabalhamos?", en: "How do we work?", de: "Wie arbeiten wir?" },
   "how.understand.title": { pt: "Entender", en: "Understand", de: "Verstehen" },
