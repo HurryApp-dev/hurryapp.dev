@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${SITE}/`, changeFrequency: "weekly", priority: 1.0 },
     { url: `${SITE}/servicos`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE}/orcamento`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE}/contato`, changeFrequency: "monthly", priority: 0.6 },
     // /blog só existe (e só entra no sitemap) com ao menos um post publicado.
     ...(posts.length > 0

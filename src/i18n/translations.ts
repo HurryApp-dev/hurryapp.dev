@@ -4,7 +4,7 @@ export const translations = {
   // Navbar
   "nav.home": { pt: "Início", en: "Home", de: "Startseite" },
   "nav.portfolio": { pt: "Portfólio", en: "Portfolio", de: "Portfolio" },
-  "nav.calculator": { pt: "Calculadora", en: "Calculator", de: "Rechner" },
+  "nav.calculator": { pt: "Orçamento", en: "Quote", de: "Angebot" },
   "nav.services": { pt: "Serviços", en: "Services", de: "Dienstleistungen" },
   "nav.meeting": { pt: "Reunião", en: "Meeting", de: "Besprechung" },
   "nav.contact": { pt: "Contato", en: "Contact", de: "Kontakt" },

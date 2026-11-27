@@ -18,7 +18,7 @@ const hurryText = hurryTextImg.src;
 // navega para "/" e rola até o elemento.
 const navItems: { labelKey: TranslationKey; href: string }[] = [
   { labelKey: "nav.portfolio", href: "/#portfolio" },
-  { labelKey: "nav.calculator", href: "/#calculator" },
+  { labelKey: "nav.calculator", href: "/orcamento" },
   { labelKey: "nav.services", href: "/servicos" },
   { labelKey: "nav.contact", href: "/contato" },
 ];
