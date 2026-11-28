@@ -11,8 +11,16 @@ português, inglês e alemão (`src/i18n`), com troca no cliente.
 > primeira resposta. Depois que ele confirmar que leu, apague esta seção inteira
 > (num PR próprio, como qualquer mudança).
 
-Em 28/11/2026 a Erica publicou o **Design System v2.0** no site (PR
-`design-system-v2`):
+Em 28/11/2026 a Erica publicou o **Design System v2.0** no site. Histórico do
+dia: o PR #9 (design + Next 16.4.3 → 16.4.6) entrou às 07:41 e, às 07:45, o
+www/hurryapp.dev **e o atendeai.hurryapp.dev** davam erro 1033 (os dois túneis
+estão no hp19). O #10 desfez o #9; depois o design voltou **sem** a atualização
+do Next (continua 16.4.3). A causa da queda não foi confirmada — olhe no hp19
+se faltou memória durante o deploy (`journalctl -k | grep -i "out of memory"`)
+e o log do deploy automático. A atualização do Next (correção de segurança)
+fica pendente até isso ser entendido.
+
+O que mudou no site:
 
 - Tokens novos em `src/index.css` e `tailwind.config.ts`: `primary-strong`
   (fundo de botão), `brand-yellow` (#FAC00E, também o anel de foco),
@@ -24,7 +32,6 @@ Em 28/11/2026 a Erica publicou o **Design System v2.0** no site (PR
   de chamada (`CtaSection`).
 - O popup de orçamento agora tem Cancelar à esquerda e Enviar à direita, mantém o X
   e **não fecha ao clicar fora**.
-- Next.js atualizado de 16.4.3 para 16.4.6 (correção de segurança).
 
 ## Design System
 
