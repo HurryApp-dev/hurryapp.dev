@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import watermarkImg from "@/assets/watermark.png";
 import type { TranslationKey } from "@/i18n/translations";
+import SectionHeader from "./SectionHeader";
 
 import defaultImg1Img from "@/assets/how-step-1.png";
 import defaultImg2Img from "@/assets/how-step-2.png";
 import defaultImg3Img from "@/assets/how-step-3.png";
 import defaultImg4Img from "@/assets/how-step-4.png";
 
-const watermark = watermarkImg.src;
 const defaultImg1 = defaultImg1Img.src;
 const defaultImg2 = defaultImg2Img.src;
 const defaultImg3 = defaultImg3Img.src;
@@ -48,40 +47,32 @@ const HowWeWorkSection = () => {
   };
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url(${watermark})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "auto 100%",
-        }}
-        aria-hidden="true"
-      />
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold font-display text-center mb-12">{t("how.title")}</h2>
+    <section className="border-t border-border/70 py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <SectionHeader eyebrow={t("eyebrow.how")} title={t("how.title")} />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {steps.map((step, i) =>
-          <div key={step.titleKey} className="glass-card p-6 text-center relative">
-              
-
-            
-              <button
-              onClick={() => handleImageUpload(i)}
-              className="mx-auto mb-4 block cursor-pointer hover:opacity-80 transition-opacity"
-              title="Clique para trocar a imagem">
-              
-                <img src={images[i]} alt={t(step.titleKey)} className="w-12 h-12 object-contain" />
-              </button>
-              <h3 className="font-semibold font-display mb-2">{t(step.titleKey)}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{t(step.descKey)}</p>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <div key={step.titleKey} data-reveal className="glass relative flex flex-col gap-3 rounded-lg p-6">
+              <div className="flex items-start justify-between">
+                <button
+                  type="button"
+                  onClick={() => handleImageUpload(i)}
+                  className="rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:drop-shadow-[0_6px_16px_hsl(var(--primary)/.5)] active:scale-95"
+                  title="Clique para trocar a imagem"
+                >
+                  <img src={images[i]} alt={t(step.titleKey)} className="h-12 w-12 object-contain" />
+                </button>
+                <span className="font-mono text-xs text-brand-yellow">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              <h3 className="font-display text-xl font-semibold">{t(step.titleKey)}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{t(step.descKey)}</p>
             </div>
-          )}
+          ))}
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HowWeWorkSection;

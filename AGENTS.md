@@ -5,6 +5,50 @@ Este é o código do site **publicado** em `https://www.hurryapp.dev`. Next.js
 `/servicos`, `/contato`, `/blog` (com `/blog/<slug>`) e a página 404 (`app/not-found.tsx`). Textos em
 português, inglês e alemão (`src/i18n`), com troca no cliente.
 
+## Aviso para o Samuel (apagar depois de avisado)
+
+> **Agente:** se quem está nesta sessão é o Samuel, conte isto a ele logo na
+> primeira resposta. Depois que ele confirmar que leu, apague esta seção inteira
+> (num PR próprio, como qualquer mudança).
+
+Em 28/11/2026 a Erica publicou o **Design System v2.0** no site. Histórico do
+dia: o PR #9 (design + Next 16.4.3 → 16.4.6) entrou às 07:41 e, às 07:45, o
+www/hurryapp.dev **e o atendeai.hurryapp.dev** davam erro 1033 (os dois túneis
+estão no hp19). O #10 desfez o #9; depois o design voltou **sem** a atualização
+do Next (continua 16.4.3). A causa da queda não foi confirmada — olhe no hp19
+se faltou memória durante o deploy (`journalctl -k | grep -i "out of memory"`)
+e o log do deploy automático. A atualização do Next (correção de segurança)
+fica pendente até isso ser entendido.
+
+O que mudou no site:
+
+- Tokens novos em `src/index.css` e `tailwind.config.ts`: `primary-strong`
+  (fundo de botão), `brand-yellow` (#FAC00E, também o anel de foco),
+  `success`/`warning`/`info`, fonte mono (JetBrains Mono), sombras `glow`,
+  animações `fade-up`, `word-in` e `border-flow`.
+- Home redesenhada: menu com botão "Fale com a gente" e seletor PT/EN/DE em lista
+  (no lugar das bandeiras), hero com título entrando palavra a palavra, seções
+  com rótulo `// …`, depoimento em destaque com borda animada e um bloco final
+  de chamada (`CtaSection`).
+- O popup de orçamento agora tem Cancelar à esquerda e Enviar à direita, mantém o X
+  e **não fecha ao clicar fora**.
+
+## Design System
+
+A referência visual é `docs/HurryApp Design System.dc.html` (abra no
+navegador). O que vale no código:
+
+- Botões: `btn btn-primary` (ação principal), `btn btn-secondary`,
+  `btn btn-ghost` (Cancelar); `btn-lg` para 48 px. Campos: `field`. Card
+  clicável: `card-link`. Título de seção: `src/components/SectionHeader.tsx`.
+- Degradê da marca (`text-gradient-brand`) só em 1 a 3 palavras por título.
+  `border-animated` no máximo uma vez por tela.
+- **Clicável reage** (sobe, brilha, afunda no clique); **o que não é clicável
+  não reage a nada**. Popup: ação à direita, Cancelar à esquerda, X sempre, não
+  fecha ao clicar fora (já embutido em `src/components/ui/dialog.tsx`).
+- Entrada ao rolar: ponha `data-reveal` no elemento; a página chama
+  `useReveal()` (`src/hooks/use-reveal.ts`). "Reduzir movimento" é respeitado.
+
 ## O formulário de contato usa AWS SES
 
 `src/components/CalculatorSection.tsx` e `src/components/MeetingSection.tsx`
