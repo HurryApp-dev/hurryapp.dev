@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { Language, translations, TranslationKey } from "./translations";
 
 interface LanguageContextType {
@@ -13,6 +13,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>("pt");
+
+  // Leitores de tela e tradutores seguem o idioma escolhido.
+  useEffect(() => {
+    document.documentElement.lang = language === "pt" ? "pt-BR" : language;
+  }, [language]);
 
   const t = (key: TranslationKey): string => {
     return translations[key]?.[language] ?? key;

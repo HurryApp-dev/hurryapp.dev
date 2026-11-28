@@ -161,7 +161,7 @@ const Servicos = () => {
                   <button
                     type="button"
                     onClick={goToContact}
-                    className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+                    className="btn btn-primary"
                   >
                     {servicesPage.cta[language]}
                   </button>
