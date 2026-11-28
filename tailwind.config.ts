@@ -18,7 +18,6 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],
         display: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -30,11 +29,6 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        "primary-strong": "hsl(var(--primary-strong))",
-        "brand-yellow": "hsl(var(--brand-yellow))",
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
-        info: "hsl(var(--info))",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -74,20 +68,6 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        xl: "calc(var(--radius) + 4px)",
-        "2xl": "calc(var(--radius) + 12px)",
-      },
-      boxShadow: {
-        glow: "var(--glow-primary)",
-        "glow-accent": "var(--glow-accent)",
-        "inner-hl": "inset 0 1px 0 hsl(var(--foreground) / .08)",
-        md: "0 8px 24px -8px hsl(222 60% 2% / .7)",
-        lg: "0 24px 64px -12px hsl(222 60% 2% / .85)",
-      },
-      transitionTimingFunction: {
-        out: "cubic-bezier(.16, 1, .3, 1)",
-        "in-out": "cubic-bezier(.65, 0, .35, 1)",
-        spring: "cubic-bezier(.34, 1.56, .64, 1)",
       },
       // Texto dos posts: cores do tema escuro (variáveis do index.css).
       typography: {
@@ -110,7 +90,7 @@ export default {
             "--tw-prose-th-borders": "hsl(var(--border))",
             "--tw-prose-td-borders": "hsl(var(--border))",
             a: { textDecoration: "underline", textUnderlineOffset: "3px", fontWeight: "500" },
-            "a:hover": { color: "hsl(var(--brand-yellow))" },
+            "a:hover": { color: "hsl(var(--accent-foreground))" },
             "h1, h2, h3, h4": { fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" },
             // Código em linha com fundo; o bloco `pre` tem o seu próprio.
             ":not(pre) > code": {
@@ -141,31 +121,11 @@ export default {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        "border-flow": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        "fade-up": {
-          from: { opacity: "0", transform: "translateY(16px)" },
-          to: { opacity: "1", transform: "none" },
-        },
-        "word-in": {
-          from: { opacity: "0", transform: "translateY(14px)", filter: "blur(6px)" },
-          to: { opacity: "1", transform: "none", filter: "blur(0)" },
-        },
-        "pulse-dot": {
-          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--accent) / .55)" },
-          "50%": { boxShadow: "0 0 0 6px hsl(var(--accent) / 0)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s cubic-bezier(.16,1,.3,1) forwards",
-        "border-flow": "border-flow 8s linear infinite",
-        "fade-up": "fade-up 600ms cubic-bezier(.16,1,.3,1) both",
-        "word-in": "word-in 500ms cubic-bezier(.16,1,.3,1) both",
-        "pulse-dot": "pulse-dot 2s ease-out infinite",
+        "fade-in": "fade-in 0.6s ease-out forwards",
       },
     },
   },

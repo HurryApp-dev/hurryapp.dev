@@ -22,7 +22,6 @@ import portfolioAtendeaiLogoImg from "@/assets/portfolio-atendeai-logo.png";
 import portfolioAtendeaiDetailImg from "@/assets/portfolio-atendeai-detail.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
-import SectionHeader from "./SectionHeader";
 
 const portfolioAdega = portfolioAdegaImg.src;
 const portfolioLogo2 = portfolioLogo2Img.src;
@@ -161,50 +160,42 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="portfolio" className="border-t border-border/70 py-16 md:py-24">
+    <section id="portfolio" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <SectionHeader eyebrow={t("eyebrow.portfolio")} title={t("portfolio.title")} />
+        <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center">
+          {t("portfolio.title")}
+        </h2>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[340px_1fr]">
-          {/* Lista de projetos (esquerda): cada item é um botão. */}
-          <div
-            data-reveal
-            className="portfolio-scrollbar -m-2 flex max-h-[400px] flex-col gap-3 overflow-y-auto p-2 lg:max-h-[600px]"
-          >
-            {portfolioItems.map((item) => {
-              const ativo = selected === item.name;
-              return (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => handleSelect(item.name)}
-                  aria-pressed={ativo}
-                  className={`flex w-full flex-none items-center gap-4 rounded-lg border p-4 text-left transition-all duration-200 ease-out active:scale-[.99] ${
-                    ativo
-                      ? "border-primary/60 bg-card shadow-glow"
-                      : "border-border/50 bg-card/60 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_12px_32px_-16px_hsl(var(--primary)/.55)]"
-                  }`}
-                >
-                  <img src={item.image} alt="" className="h-14 w-14 flex-shrink-0 rounded-md object-contain" />
-                  <span className="flex-1 text-sm font-medium text-foreground">{item.name}</span>
-                  {ativo && <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />}
-                </button>
-              );
-            })}
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8">
+          {/* Cards list - left side */}
+          <div className="flex flex-col gap-3 max-h-[400px] lg:max-h-[600px] overflow-y-auto pr-2 portfolio-scrollbar">
+            {portfolioItems.map((item) => (
+              <div
+                key={item.name}
+                onClick={() => handleSelect(item.name)}
+                className={`glass-card p-4 flex items-center gap-4 cursor-pointer transition-all ${
+                  selected === item.name
+                    ? "portfolio-selected"
+                    : "hover:border-primary/30"
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="h-14 w-14 object-contain rounded-md flex-shrink-0"
+                />
+                <p className="text-sm font-medium text-foreground">{item.name}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Detalhes (direita) */}
+          {/* Details - right side */}
           {selectedItem?.details && (
-            <div
-              key={selectedItem.name}
-              ref={detailsRef}
-              className="glass scroll-mt-24 rounded-xl p-6 text-left shadow-inner-hl animate-fade-up md:p-10"
-            >
-              <span className="eyebrow">{t("eyebrow.portfolio")}</span>
-              <h3 className="mb-4 mt-2 font-display text-[28px] font-semibold leading-tight tracking-[-0.015em]">
+            <div ref={detailsRef} className="glass-card p-6 md:p-10 text-left animate-in fade-in duration-300">
+              <h3 className="text-2xl font-bold font-display mb-4">
                 {selectedItem.name}
               </h3>
-              <p className="mb-6 max-w-[68ch] leading-relaxed text-muted-foreground">
+              <p className="text-muted-foreground mb-6">
                 {t(selectedItem.details.descriptionKey as TranslationKey)}
               </p>
 
@@ -213,10 +204,10 @@ const PortfolioSection = () => {
                   href={selectedItem.details.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary mb-6"
+                  className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
                 >
                   {t("portfolio.viewProject")}
-                  <ExternalLink size={16} aria-hidden="true" />
+                  <ExternalLink size={16} />
                 </a>
               )}
 
@@ -228,7 +219,7 @@ const PortfolioSection = () => {
                   controls
                   playsInline
                   preload="none"
-                  className="w-full rounded-lg border border-border"
+                  className="rounded-lg w-full border border-border"
                 />
               )}
 
@@ -239,7 +230,7 @@ const PortfolioSection = () => {
                       key={idx}
                       src={photo}
                       alt={`${selectedItem.name} screenshot ${idx + 1}`}
-                      className="w-full rounded-lg border border-border object-cover"
+                      className="rounded-lg w-full object-cover border border-border"
                     />
                   ))}
                 </div>
