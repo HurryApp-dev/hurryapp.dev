@@ -69,7 +69,7 @@ const CalculatorSection = () => {
           <p className="text-muted-foreground">{t("calc.description")}</p>
           <button
             onClick={() => setOpen(true)}
-            className="bg-gradient-primary text-primary-foreground px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+            className="btn btn-primary btn-lg"
           >
             {t("calc.cta")}
           </button>
@@ -101,47 +101,49 @@ const CalculatorSection = () => {
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </div>
             <div>
-              <label className="block text-sm text-muted-foreground mb-1">{t("meeting.name")}</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-foreground/90">{t("meeting.name")}</label>
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                className="field"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm text-muted-foreground mb-1">{t("meeting.email")}</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-foreground/90">{t("meeting.email")}</label>
               <input
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                className="field"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm text-muted-foreground mb-1">{t("calc.popup.message")}</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-foreground/90">{t("calc.popup.message")}</label>
               <textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 rows={6}
-                className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition resize-none"
+                className="field h-auto resize-none py-3"
                 placeholder={t("calc.popup.placeholder")}
                 required
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full bg-gradient-primary text-primary-foreground py-3 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-              {t("calc.popup.send")}
-            </button>
+            {/* Cancelar à esquerda, ação principal à direita. */}
+            <div className="-mx-6 flex items-center justify-between gap-3 border-t border-[hsl(222_30%_16%)] px-6 pt-4">
+              <button type="button" onClick={() => setOpen(false)} className="btn btn-ghost">
+                {t("calc.popup.cancel")}
+              </button>
+              <button type="submit" disabled={sending} className="btn btn-primary">
+                {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+                {t("calc.popup.send")}
+              </button>
+            </div>
           </form>
         </DialogContent>
       </Dialog>

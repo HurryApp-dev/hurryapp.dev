@@ -29,6 +29,29 @@ export const translations = {
     de: "Wir automatisieren die Routinen Ihres Unternehmens und entwickeln maßgeschneiderte Lösungen. Berichte per WhatsApp, KI-gestützter Kundenservice, Integration der Tools, die Sie bereits nutzen: alles läuft von selbst und wird deutlich schneller geliefert als mit herkömmlicher Programmierung.",
   },
   "hero.cta": { pt: "Fale com a gente", en: "Talk to us", de: "Sprechen Sie mit uns" },
+  "hero.secondaryCta": { pt: "Ver portfólio", en: "See portfolio", de: "Portfolio ansehen" },
+  "hero.rating": { pt: "Nota 5/5 nas avaliações dos nossos clientes", en: "Rated 5/5 by our clients", de: "Von unseren Kunden mit 5/5 bewertet" },
+  "hero.devicesAlt": { pt: "Telas de apps em vários dispositivos", en: "App screens on multiple devices", de: "App-Bildschirme auf mehreren Geräten" },
+
+  // Rótulos de seção (Design System v2)
+  "eyebrow.services": { pt: "O que fazemos", en: "What we do", de: "Was wir tun" },
+  "eyebrow.portfolio": { pt: "Cases", en: "Cases", de: "Projekte" },
+  "eyebrow.testimonials": { pt: "Depoimentos", en: "Testimonials", de: "Kundenstimmen" },
+  "eyebrow.how": { pt: "Processo", en: "Process", de: "Ablauf" },
+
+  // Bloco final de chamada (home)
+  "cta.title1": { pt: "Sua próxima rotina pode", en: "Your next routine can", de: "Ihre nächste Routine kann" },
+  "cta.title2": { pt: "rodar sozinha", en: "run on its own", de: "von selbst laufen" },
+  "cta.desc": {
+    pt: "Conte o que toma tempo na sua empresa e a gente mostra o que dá para automatizar primeiro.",
+    en: "Tell us what takes up your company's time and we'll show you what can be automated first.",
+    de: "Erzählen Sie uns, was in Ihrem Unternehmen Zeit kostet, und wir zeigen Ihnen, was sich zuerst automatisieren lässt.",
+  },
+
+  // Menu
+  "menu.language": { pt: "Idioma", en: "Language", de: "Sprache" },
+  "menu.open": { pt: "Abrir menu", en: "Open menu", de: "Menü öffnen" },
+  "menu.close": { pt: "Fechar menu", en: "Close menu", de: "Menü schließen" },
 
   // Calculator
   "calc.title": { pt: "Calculadora", en: "Calculator", de: "Rechner" },
@@ -47,6 +70,7 @@ export const translations = {
   "calc.popup.message": { pt: "Descreva seu projeto", en: "Describe your project", de: "Beschreiben Sie Ihr Projekt" },
   "calc.popup.placeholder": { pt: "Responda às perguntas acima e adicione qualquer detalhe extra sobre seu projeto...", en: "Answer the questions above and add any extra details about your project...", de: "Beantworten Sie die obigen Fragen und fügen Sie weitere Details zu Ihrem Projekt hinzu..." },
   "calc.popup.send": { pt: "Enviar Solicitação", en: "Send Request", de: "Anfrage senden" },
+  "calc.popup.cancel": { pt: "Cancelar", en: "Cancel", de: "Abbrechen" },
 
   // Features / Services
   "features.title": { pt: "Nossos Serviços", en: "Our Services", de: "Unsere Dienstleistungen" },

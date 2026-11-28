@@ -43,50 +43,68 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <Link href="/#home" onClick={(e) => handleClick(e, "/#home")} className="flex items-center gap-2 cursor-pointer">
-          <img src={hurryIcon} alt="HurryApp" className="h-10" />
-          <img src={hurryText} alt="HurryApp" className="h-6 hidden sm:block" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/75 backdrop-blur-[14px] border-b border-border/60">
+      <div className="container mx-auto flex h-16 items-center gap-6 px-4">
+        <Link
+          href="/#home"
+          onClick={(e) => handleClick(e, "/#home")}
+          className="flex flex-none items-center gap-2 rounded-md transition-opacity duration-150 hover:opacity-90"
+        >
+          <img src={hurryIcon} alt="HurryApp" className="h-9" />
+          <img src={hurryText} alt="" aria-hidden="true" className="h-5 hidden sm:block" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {items.map((item) => (
-            <Link
-              key={item.labelKey}
-              href={item.href}
-              onClick={(e) => handleClick(e, item.href)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t(item.labelKey)}
-            </Link>
-          ))}
-          <LanguageSwitcher />
+        <div className="hidden md:flex flex-1 items-center gap-1">
+          {items.map((item) => {
+            const ativo = item.href.startsWith("/#") ? false : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.labelKey}
+                href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
+                aria-current={ativo ? "page" : undefined}
+                className={`rounded-[10px] px-3 py-2 text-sm font-medium transition-all duration-150 hover:bg-secondary/60 hover:text-foreground active:scale-[.97] ${
+                  ativo ? "text-foreground bg-secondary/60" : "text-muted-foreground"
+                }`}
+              >
+                {t(item.labelKey)}
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="ml-auto flex items-center gap-2">
           <LanguageSwitcher />
+          <Link href="/contato" className="btn btn-primary hidden h-10 px-4 text-sm md:inline-flex">
+            {t("hero.cta")}
+          </Link>
           <button
-            className="text-foreground"
+            type="button"
+            className="grid h-11 w-11 place-items-center rounded-md border border-transparent text-foreground transition-all duration-150 hover:border-[hsl(222_30%_24%)] hover:bg-secondary active:scale-[.94] md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? t("menu.close") : t("menu.open")}
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border/30 px-4 pb-4">
+        <div className="md:hidden border-t border-border/60 bg-background px-4 pb-4 pt-2 animate-in fade-in-0 slide-in-from-top-2 duration-200">
           {items.map((item) => (
             <Link
               key={item.labelKey}
               href={item.href}
               onClick={(e) => handleClick(e, item.href)}
-              className="block w-full text-left py-3 text-muted-foreground hover:text-foreground transition-colors"
+              className="block w-full rounded-[10px] px-3 py-3 text-left text-muted-foreground transition-colors duration-150 hover:bg-secondary/60 hover:text-foreground"
             >
               {t(item.labelKey)}
             </Link>
           ))}
+          <Link href="/contato" onClick={() => setMobileOpen(false)} className="btn btn-primary mt-3 w-full">
+            {t("hero.cta")}
+          </Link>
         </div>
       )}
     </nav>
