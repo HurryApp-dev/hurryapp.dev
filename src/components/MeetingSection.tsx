@@ -42,7 +42,7 @@ const MeetingSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">{t("meeting.title")}</h2>
         <p className="text-muted-foreground mb-10">{t("meeting.subtitle")}</p>
 
-        <form onSubmit={handleSubmit} className="glass-card space-y-4 p-6 text-left md:p-8">
+        <form onSubmit={handleSubmit} className="glass-card p-8 space-y-4 text-left">
           {/* Honeypot: o atributo hidden (e não a classe) evita que o space-y-4 empurre o campo seguinte. */}
           <div hidden aria-hidden="true">
             <input type="text" name="website" tabIndex={-1} autoComplete="off" />
@@ -53,24 +53,24 @@ const MeetingSection = () => {
             { label: t("meeting.whatsapp"), key: "whatsapp" as const, type: "tel" },
           ].map((field) => (
             <div key={field.key}>
-              <label className="mb-1.5 block text-[13px] font-medium text-foreground/90">{field.label}</label>
+              <label className="block text-sm text-muted-foreground mb-1">{field.label}</label>
               <input
                 type={field.type}
                 value={form[field.key]}
                 onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                className="field"
+                className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
                 required
               />
             </div>
           ))}
 
           <div>
-            <label className="mb-1.5 block text-[13px] font-medium text-foreground/90">{t("meeting.message")}</label>
+            <label className="block text-sm text-muted-foreground mb-1">{t("meeting.message")}</label>
             <textarea
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               rows={4}
-              className="field h-auto resize-none py-3"
+              className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition resize-none"
               required
             />
           </div>
@@ -78,7 +78,7 @@ const MeetingSection = () => {
           <button
             type="submit"
             disabled={sending}
-            className="btn btn-primary btn-lg mt-2 w-full"
+            className="w-full bg-gradient-primary text-primary-foreground py-3 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-2 disabled:opacity-50"
           >
             {sending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
             {t("meeting.cta")}

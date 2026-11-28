@@ -2,7 +2,6 @@
 
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { TranslationKey } from "@/i18n/translations";
-import SectionHeader from "./SectionHeader";
 import iconResponsiveImg from "@/assets/icon-responsive.png";
 import iconCustomImg from "@/assets/icon-custom.png";
 import iconIntegrationImg from "@/assets/icon-integration.png";
@@ -29,26 +28,23 @@ const FeaturesSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="border-t border-border/70 py-16 md:py-24">
+    <section id="services" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <SectionHeader eyebrow={t("eyebrow.services")} title={t("features.title")} subtitle={t("features.subtitle")} />
+        <h2 className="text-3xl md:text-4xl font-bold font-display text-center mb-4 text-yellow-400">{t("features.title")}</h2>
+        <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto leading-relaxed">{t("features.subtitle")}</p>
 
-        {/* Cards informativos: não são clicáveis, então não reagem ao mouse. */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, i) => (
-            <div key={feature.titleKey} data-reveal className="glass rounded-lg p-6 flex flex-col gap-3">
-              <div className="flex items-start justify-between">
-                <img src={feature.image} alt="" className="h-12 w-12 object-contain" />
-                <span className="font-mono text-xs text-brand-yellow">{String(i + 1).padStart(2, "0")}</span>
-              </div>
-              <h3 className="font-display text-xl font-semibold">{t(feature.titleKey)}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{t(feature.descKey)}</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature) =>
+          <div key={feature.titleKey} className="glass-card p-6 hover:border-primary/30 transition-colors group">
+              <img src={feature.image} alt="" className="w-12 h-12 object-contain mb-4" />
+              <h3 className="text-lg font-semibold font-display mb-2">{t(feature.titleKey)}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{t(feature.descKey)}</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default FeaturesSection;

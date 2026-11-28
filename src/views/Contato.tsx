@@ -24,7 +24,7 @@ const Contato = () => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-lg bg-[#25D366] text-white hover:shadow-[0_10px_32px_-8px_rgb(37_211_102/.6)]"
+              className="bg-[#25D366] text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-5 h-5" />
               {t("meeting.whatsapp_cta")}
